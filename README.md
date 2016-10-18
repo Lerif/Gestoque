@@ -1,2 +1,2 @@
 # Gestoque
-GESTOQUE YES !
+GESTOQUE NO !
