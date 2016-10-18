@@ -1,0 +1,20 @@
+package Fabricas;
+
+import Entidades.Pedido;
+//import Enumeradores.TipoProduto;
+
+public class FabricaPedido extends AbstrataFabrica<FabricaProduto>{
+
+	private FabricaPedido() {
+		
+	}
+	
+	public static FabricaPedido nova(){
+		return new FabricaPedido();
+	}
+
+
+	public Pedido novo(String codigo, String nome, int quantidade){
+		return Pedido.novo(codigo, nome, quantidade);
+	}
+}
