@@ -54,7 +54,7 @@ public class InterfaceMenuGeral extends JFrame {
 			interfaceCadastroFornecedor();
 		});
 
-		JMenuItem CadastroMatPrima = new JMenuItem("Cadastrar Mat�ria Prima");
+		JMenuItem CadastroMatPrima = new JMenuItem("Cadastrar Matéria Prima");
 
 		CadastroMatPrima.addActionListener((ActionEvent event) -> {
 			interfaceCadastroMatPrima();
@@ -78,9 +78,9 @@ public class InterfaceMenuGeral extends JFrame {
 		CadastroMenu.add(CadastroProduto);
 		CadastroMenu.add(CadastroPedido);
 
-		JMenu FabricaMenu = new JMenu("Usu�rio - Fabrica");
-		JMenuItem SaidaProdutoMi = new JMenuItem("Gerar sa�da de Produto");
-		JMenuItem ListarAndamentoProducao = new JMenuItem("Listar andamento da produ��o");
+		JMenu FabricaMenu = new JMenu("Usuário - Fábrica");
+		JMenuItem SaidaProdutoMi = new JMenuItem("Gerar saída de Produto");
+		JMenuItem ListarAndamentoProducao = new JMenuItem("Listar andamento da produção");
 		JMenuItem ListarInsumosProduto = new JMenuItem("Listar insumos do produto");
 		JMenuItem ListarPedidos = new JMenuItem("Listar pedidos");
 		JMenuItem CadastrarProdutoNovo = new JMenuItem("Cadastrar produto novo");
@@ -91,13 +91,13 @@ public class InterfaceMenuGeral extends JFrame {
 		FabricaMenu.add(ListarPedidos);
 		FabricaMenu.add(CadastrarProdutoNovo);
 
-		JMenu AlmoxarifadoMenu = new JMenu("Usu�rio - Almoxarifado");
+		JMenu AlmoxarifadoMenu = new JMenu("Usuário - Almoxarifado");
 		JMenuItem CadastrarEntradaInsumo = new JMenuItem("Cadastrar Entrada de insumos");
 		AlmoxarifadoMenu.add(CadastrarEntradaInsumo);
 
-		JMenu AdministrativoMenu = new JMenu("Usu�rio - Administrativo");
+		JMenu AdministrativoMenu = new JMenu("Usuário - Administrativo");
 
-		JMenuItem ListarMaxMinEstoque = new JMenuItem("Listar M�ximos/M�nimos do Estoque");
+		JMenuItem ListarMaxMinEstoque = new JMenuItem("Listar Máximos/Mínimos do Estoque");
 		JMenuItem ListarQtdProdutosProduzidos = new JMenuItem("Listar quantidade de produtos produzidos");
 		JMenuItem ListarQtdInsumosConsumidos = new JMenuItem("Listar quantidade de insumos consumidos");
 		JMenuItem ListarPedidoCliente = new JMenuItem("Listar pedidos cliente");
@@ -109,9 +109,9 @@ public class InterfaceMenuGeral extends JFrame {
 		AdministrativoMenu.add(ListarPedidoCliente);
 		AdministrativoMenu.add(ListarAndamentoPedido);
 
-		JMenuItem FabricaSubMenu = new JMenuItem("Usu�rio - F�brica");
-		JMenuItem AlmoxarifadoMi = new JMenuItem("Usu�rio - Almoxarifado");
-		JMenuItem AdministrativoMi = new JMenuItem("Usuario - Administrativo");
+		JMenuItem FabricaSubMenu = new JMenuItem("Usuário - Fábrica");
+		JMenuItem AlmoxarifadoMi = new JMenuItem("Usuário - Almoxarifado");
+		JMenuItem AdministrativoMi = new JMenuItem("Usuário - Administrativo");
 
 		JMenu SairMenu = new JMenu("Sair");
 		SairMenu.addActionListener((ActionEvent event) -> {
@@ -195,7 +195,7 @@ public class InterfaceMenuGeral extends JFrame {
 		JPanel panel = new JPanel();
 		JLabel labelId = new JLabel("ID:");
 		JLabel labelNome = new JLabel("Nome:");
-		JLabel labelCodigo = new JLabel("C�digo:");
+		JLabel labelCodigo = new JLabel("Código:");
 		JLabel labelQuantidade = new JLabel("Quantidade:");
 		final JTextField idDoPedido = new JTextField();
 		final JTextField NomeDoProduto = new JTextField();

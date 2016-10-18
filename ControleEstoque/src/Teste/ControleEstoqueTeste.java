@@ -6,7 +6,7 @@ import Entidades.Cliente;
 import Entidades.Fornecedor;
 import Entidades.MateriaPrima;
 import Entidades.Produto;
-import Enumeradores.TipoProduto;
+//import Enumeradores.TipoProduto;
 import Interface.InterfaceMenuGeral;
 import Repositorios.RepositorioCliente;
 import Repositorios.RepositorioEstoqueProduto;
@@ -24,7 +24,7 @@ public class ControleEstoqueTeste {
 
 	public static void main(String[] args) {
 		
-		InterfaceMenuGeral.interfaceInicial();
+		InterfaceMenuGeral.main(args);
 		
 		// testaCriacaoCliente();
 		// testarMateriaPrima();
@@ -38,7 +38,7 @@ public class ControleEstoqueTeste {
 	}
 
 	private static Cliente testaCriacaoCliente() {
-		System.out.println("TESTE CRIA��O DE CLIENTE:");
+		System.out.println("TESTE CRIAÇÃO DE CLIENTE:");
 		ServicoCliente servicoCliente = new ServicoCliente();
 		Cliente clienteTeste = servicoCliente.solicitarCriacaoCliente("ERNESTO", "1234");
 		System.out.println("Nome: " + clienteTeste.getNome());
