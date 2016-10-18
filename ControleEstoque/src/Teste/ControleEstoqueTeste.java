@@ -6,8 +6,12 @@ import Entidades.Cliente;
 import Entidades.Fornecedor;
 import Entidades.MateriaPrima;
 import Entidades.Produto;
+<<<<<<< 281f4550e2e059379563f0afb73b7334a9c97a19
 import Enumeradores.NomeMateriaPrima;
 import Enumeradores.TipoProduto;
+=======
+//import Enumeradores.TipoProduto;
+>>>>>>> Código com interface refatorada 1.2
 import Interface.InterfaceMenuGeral;
 import Repositorios.RepositorioCliente;
 import Repositorios.RepositorioEstoqueProduto;
@@ -23,6 +27,7 @@ public class ControleEstoqueTeste {
 	}
 
 	public static void main(String[] args) {
+<<<<<<< 281f4550e2e059379563f0afb73b7334a9c97a19
 
 		testarEstoqueMateriaPrima();
 
@@ -32,6 +37,24 @@ public class ControleEstoqueTeste {
 
 	private static Cliente testaCriacaoCliente() {
 		System.out.println("TESTE CRIACAO DE CLIENTE:");
+=======
+		
+		InterfaceMenuGeral.main(args);
+		
+		// testaCriacaoCliente();
+		// testarMateriaPrima();
+		// testaCriacaoFornecedor();
+		// testarCricaoProduto();
+		// testarEstoqueProduto();
+		// testarSelectEstoqueProduto();
+		// testarInsertCliente();
+		// testarMateriaPrima();
+		// testarEstoqueMateriaPrima();
+	}
+
+	private static Cliente testaCriacaoCliente() {
+		System.out.println("TESTE CRIAÇÃO DE CLIENTE:");
+>>>>>>> Código com interface refatorada 1.2
 		ServicoCliente servicoCliente = new ServicoCliente();
 		Cliente clienteTeste = servicoCliente.solicitarCriacaoCliente("ERNESTO", "1234");
 		System.out.println("Nome: " + clienteTeste.getNome());
