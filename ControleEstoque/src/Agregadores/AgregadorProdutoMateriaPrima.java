@@ -4,6 +4,11 @@ public class AgregadorProdutoMateriaPrima {
 
 	public AgregadorProdutoMateriaPrima() {
 		// TODO Auto-generated constructor stub
+		
+		
+		public int materiaPrima(){
+			return;
+		}
 	}
 
 }
