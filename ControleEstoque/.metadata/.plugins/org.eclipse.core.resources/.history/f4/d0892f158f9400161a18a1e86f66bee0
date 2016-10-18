@@ -1,0 +1,36 @@
+
+
+}
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Teste {
+
+    protected JFrame  janela = new JFrame("Teste");
+    protected JButton color1 = new JButton("Exemplo");
+
+    public static void main(String st[]) {
+        SwingUtilities.invokeLater( new Runnable()
+        {
+            public void run()
+            {
+                MainForm mf = new MainForm();
+                mf.load();
+            }
+        });
+
+    }
+    public void load() {
+
+    janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        janela.setSize(new Dimension(500, 500));   
+        janela.setResizable(false);
+    janela.setVisible(true);
+
+    Container c = janela.getContentPane();
+    c.setLayout(null); //vamos fazer a gestão manualmente
+    color1.setBounds(250, 50, 150, 50); //dimensoes e posicionamento do botão (os dois primeiros valores indicam a posicao absoluta do botao)
+    c.add(color1);
+    }
+}

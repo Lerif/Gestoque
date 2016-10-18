@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="InterfaceDeMenu.InterfaceDeMenuGeral"/>
+<fullyQualifiedTypeName name="Servicos.ServicoFachada"/>
+<fullyQualifiedTypeName name="Servicos.ServicoProduto"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
+<fullyQualifiedTypeName name="Repositorios.RepositorioEstoqueProduto"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="Fabricas.FabricaProduto"/>
+<fullyQualifiedTypeName name="Entidades.Produto"/>
+<fullyQualifiedTypeName name="Repositorios.RepositorioGenerico"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="Entidades.Pedido"/>
+</qualifiedTypeNameHistroy>

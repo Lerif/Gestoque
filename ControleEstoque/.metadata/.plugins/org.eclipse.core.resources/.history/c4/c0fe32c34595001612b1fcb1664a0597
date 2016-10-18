@@ -1,0 +1,32 @@
+package Repositorios;
+
+import java.util.ArrayList;
+
+import Entidades.Pedido;
+import Entidades.Produto;
+
+public class RepositorioPedido implements RepositorioGenerico<Pedido>{
+	
+	public static ArrayList<Pedido> estoquePedido = new ArrayList<Pedido>();
+	
+
+}
+    public ArrayList<Pedido>select(Pedido pedido){
+    	ArrayList<Pedido> retornoSelect = new ArrayList<Pedido>();
+    	for(Pedido pedidoList : estoquePedido){
+    		if(estoquePedido.contains(pedido.hashCode())){
+    			retornoSelect.add(pedidoList);
+    		}else{
+    			retornoSelect = null;
+    		}
+    		
+    	}
+    	return retornoSelect;
+    }
+     public void insert(Pedido pedido){
+    	 estoquePedido.add(pedido);
+     }
+     public List<Pedido> findAll(){
+    	 return estoquePedido;
+    }
+  }

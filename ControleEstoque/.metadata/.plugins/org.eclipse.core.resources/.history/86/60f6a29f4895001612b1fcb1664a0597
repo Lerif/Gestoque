@@ -1,0 +1,22 @@
+package Servicos;
+
+import Entidades.Pedido;
+import Entidades.Produto;
+
+public class ServicoFachada {
+	
+	public ServicoFachada(){
+		
+	}
+	
+    public Produto cadastrarProduto(String codigo, String nome){
+    	ServicoProduto servico = new ServicoProduto();
+    	return servico.solicitarCriacaoProduto(codigo,nome);
+    	
+    }
+    
+    public Pedido cadastrarPedido(String codigo, Produto produto, int quantidade ){
+    	ServicoPedido servico = new ServicoPedido();
+    	return servico.solicitarCriacaoPedido(codigo, produto, quantidade);
+    }
+}

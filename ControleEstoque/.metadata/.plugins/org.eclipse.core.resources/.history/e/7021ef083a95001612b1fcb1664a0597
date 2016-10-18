@@ -1,0 +1,8 @@
+package Repositorios;
+
+import Entidades.Pedido;
+
+public class RepositorioPedido implements RepositorioGenerico<Pedido>{
+	
+
+}

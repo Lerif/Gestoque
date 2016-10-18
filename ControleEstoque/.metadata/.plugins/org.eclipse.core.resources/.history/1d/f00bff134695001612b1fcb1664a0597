@@ -1,0 +1,41 @@
+package Servicos;
+
+import java.util.List;
+
+import Entidades.Pedido;
+import Entidades.Produto;
+//import Enumeradores.TipoProduto;
+import Fabricas.FabricaPedido;
+import Repositorios.RepositorioEstoqueProduto;
+import Repositorios.RepositorioPedido;
+
+public class ServicoPedido {
+	
+	public RepositorioPedido repositorioPedido = new RepositorioPedido();
+	
+	public ServicoPedido() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static ServicoPedido novo(){
+		return new ServicoPedido();
+	}
+/*	
+	public Produto solicitarCriacaoProduto(String codigo, TipoProduto tipo){
+		return FabricaProduto.nova().novo(codigo, tipo);		
+	}
+	
+	*/
+	
+	public Pedido solicitarCriacaoPedido(String codigo,Produto produto, int quantidade){
+		Pedido pedido= FabricaPedido.nova().novo(codigo, produto, quantidade);
+		repositorioPedido.insert(pedido);
+		return pedido;
+	}
+	
+	public List<Pedido> buscarTodos() {
+		// TODO Auto-generated method stub
+		return RepositorioPedido.findAll();
+	}
+	
+}
