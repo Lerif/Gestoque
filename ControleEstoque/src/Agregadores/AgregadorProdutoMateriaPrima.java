@@ -7,5 +7,4 @@ public class AgregadorProdutoMateriaPrima {
 	public AgregadorProdutoMateriaPrima(int quantidade) {
 		this.quantidade = quantidade;
 	}
-
 }
