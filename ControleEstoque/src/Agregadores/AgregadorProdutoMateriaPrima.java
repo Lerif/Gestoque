@@ -6,9 +6,7 @@ public class AgregadorProdutoMateriaPrima {
 		// TODO Auto-generated constructor stub
 		
 		
-		public int materiaPrima(){
-			return;
+		
 		}
 	}
 
-}
