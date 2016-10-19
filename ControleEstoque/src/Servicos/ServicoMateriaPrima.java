@@ -1,6 +1,7 @@
 package Servicos;
 
 import Entidades.MateriaPrima;
+import Enumeradores.NomeMateriaPrima;
 import Fabricas.FabricaMateriaPrima;
 
 public class ServicoMateriaPrima {
@@ -12,7 +13,7 @@ public class ServicoMateriaPrima {
 		return new ServicoMateriaPrima();
 	}
 
-	public static MateriaPrima solicitarCriacaoMateriaPrima(String tipo, int quantidade) {
-		return FabricaMateriaPrima.nova().nova(tipo, quantidade);
+	public static MateriaPrima solicitarCriacaoMateriaPrima(NomeMateriaPrima nomeMateriaPrima) {
+		return FabricaMateriaPrima.nova().nova(nomeMateriaPrima);
 	}
 }
