@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package DAO;
 
 import java.sql.SQLException;
@@ -60,4 +60,4 @@ public class ProdutoDAO extends DAO{
   }
 
 }
->>>>>>> origin/Hivison
+
