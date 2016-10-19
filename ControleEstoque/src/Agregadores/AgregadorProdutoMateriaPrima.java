@@ -2,9 +2,8 @@ package Agregadores;
 
 public class AgregadorProdutoMateriaPrima {
 
-	int quantidade;
-	
-	public AgregadorProdutoMateriaPrima(int quantidade) {
-		this.quantidade = quantidade;
+	public AgregadorProdutoMateriaPrima() {
+		// TODO Auto-generated constructor stub
 	}
+
 }
