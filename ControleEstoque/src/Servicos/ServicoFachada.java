@@ -1,8 +1,13 @@
 package Servicos;
 
+import java.util.List;
+
+import Agregadores.AgregadorProdutoMateriaPrima;
 import Entidades.Cliente;
+import Entidades.MateriaPrima;
 import Entidades.Pedido;
 import Entidades.Produto;
+import Enumeradores.NomeMateriaPrima;
 
 public class ServicoFachada {
 	
@@ -24,4 +29,16 @@ public class ServicoFachada {
     	ServicoCliente servicoCliente = new ServicoCliente();
     	return servicoCliente.solicitarCriacaoCliente(nome, cnpj);
     }
+    
+    public AgregadorProdutoMateriaPrima associarProdutoMateriaPrima(Produto produto, List<MateriaPrima> materiasPrimas){
+    	
+    	ServicoProdutoMateriaPrima servicoProdutoMateriaPrima = new ServicoProdutoMateriaPrima();
+		return servicoProdutoMateriaPrima.solicitarCriacaoAgregadorProdutoMateriaPrima(materiasPrimas, produto);
+    	
+    }
+
+	public void cadastrarMateriaPrima(NomeMateriaPrima par) {
+		// TODO Auto-generated method stub
+		
+	}
 }
