@@ -8,7 +8,7 @@ public class ServicoAgregadorProdutoMateriaPrima {
 		
 	}
 	
-	public AgregadorProdutoMateriaPrima novoAgregadorProdutoMateriaPrima(){
+	/*public AgregadorProdutoMateriaPrima novoAgregadorProdutoMateriaPrima(){
 		
-	}
+	}*/
 }
