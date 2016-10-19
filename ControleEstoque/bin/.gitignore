@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Agregadores/
 /DAO/
 /Entidades/
@@ -8,3 +9,14 @@
 /Repositorios/
 /Servicos/
 /Teste/
+=======
+/Teste/
+/Agregadores/
+/DAO/
+/Entidades/
+/Enumeradores/
+/Fabricas/
+/Interface/
+/Repositorios/
+/Servicos/
+>>>>>>> branch 'Thales' of https://github.com/Lerif/Gestoque

@@ -1,6 +1,5 @@
 package Fabricas;
 
-import Entidades.MateriaPrima;
 import Enumeradores.NomeMateriaPrima;
 
 public class FabricaMateriaPrima extends AbstrataFabrica<FabricaMateriaPrima> {
