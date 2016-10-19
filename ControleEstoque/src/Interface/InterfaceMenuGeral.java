@@ -453,6 +453,7 @@ public class InterfaceMenuGeral extends JFrame {
 =======
 package Interface;
 
+import java.awt.Component;
 import java.awt.Dimension;
 
 import java.awt.EventQueue;
@@ -474,15 +475,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
-
 import Agregadores.AgregadorProdutoMateriaPrima;
-
-import java.awt.FlowLayout;
 import javax.swing.JCheckBox;
-
 import Entidades.MateriaPrima;
-import Entidades.Produto;
 import Enumeradores.NomeMateriaPrima;
 import Servicos.ServicoFachada;
 
@@ -611,49 +606,26 @@ public class InterfaceMenuGeral extends JFrame {
 	}
 
 	private void interfaceListarInsumosProduto() {
-		JFrame frame = new JFrame("Gestoque - Cadastro de Produtos");
-		frame.setLocationRelativeTo(null);
-		JPanel panel = new JPanel();
-		String[] selections = { "green", "red", "orange", "dark blue" };
-		JList list = new JList(selections);
-		list.setSelectedIndex(1);
-		frame.pack();
+		
+		List<AgregadorProdutoMateriaPrima> produtosMateriasPrimas = servicoFachada.buscarListProdutoMateriaPrima();
 
-		JButton botaoCadastrar = new JButton("Escolher");
-		JButton botaoCancelar = new JButton("Cancelar");
+		StringBuilder mostrarNaTela = new StringBuilder();
 
-		panel.add(list);
-		frame.setSize(100, 200);
-		frame.getContentPane().add(panel);
-		frame.setVisible(true);
+		for (AgregadorProdutoMateriaPrima produtoMateriaPrima : produtosMateriasPrimas) {
 
-		panel.add(botaoCadastrar);
-		frame.setSize(300, 100);
-		frame.getContentPane().add(panel);
-		frame.setVisible(true);
+			mostrarNaTela.append(" \n" + produtoMateriaPrima.produto().getCodigo() + " - "
+					+ produtoMateriaPrima.produto().getNome() + " \n");
 
-		panel.add(botaoCancelar);
-		frame.setSize(300, 100);
-		frame.getContentPane().add(panel);
-		frame.setVisible(true);
+			for (MateriaPrima materiaPrima : produtoMateriaPrima.materiasPrimas()) {
 
-		botaoCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				// Get the current state of the checkbox
-				// boolean b = checkbox.isSelected();
-				System.out.println(list.getSelectedValue());
+				mostrarNaTela.append("    � " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
 
 			}
-		});
 
-		botaoCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				list.clearSelection();
-				list.setSelectedIndex(0);
-			}
-		});
-
+		}
+		JFrame frame = new JFrame("Gestoque - Listagem de insumos");
+		JOptionPane.showMessageDialog(frame, mostrarNaTela.toString());
+		//System.out.println(mostrarNaTela.toString());
 	}
 
 	public static void main(String[] args) {
@@ -863,8 +835,9 @@ public class InterfaceMenuGeral extends JFrame {
 				AgregadorProdutoMateriaPrima agregadorProdutoMateriaPrima = servicoFachada.associarProdutoMateriaPrima(
 						servicoFachada.cadastrarProduto(idDoProduto.getText(), nomeDoProduto.getText()),
 						materiasPrimas);
-				
-				System.out.println(agregadorProdutoMateriaPrima.toString());
+
+				// System.out.println(agregadorProdutoMateriaPrima.toString());
+				JOptionPane.showMessageDialog(frame, agregadorProdutoMateriaPrima.toString());
 			}
 		});
 
@@ -972,4 +945,7 @@ public class InterfaceMenuGeral extends JFrame {
 	}
 
 }
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> 9c55505af34c173cd235c517a1fdade1ed1140d7

@@ -194,7 +194,6 @@ import Servicos.ServicoProduto;
 public class ControleEstoqueTeste {
 
 	public ControleEstoqueTeste() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void main(String[] args) {
@@ -220,13 +219,16 @@ public class ControleEstoqueTeste {
 		testarEstoqueMateriaPrima();
 
 		 InterfaceMenuGeral intefaceDeMenu = new InterfaceMenuGeral();
-		//
 		 InterfaceMenuGeral.main(args);
 >>>>>>> c47502483a2b819c6dedbfbfc2f01b0655733fbb
 	}
 
 	private static Cliente testaCriacaoCliente() {
+<<<<<<< HEAD
 		System.out.println("TESTE CRIAÇÃO DE CLIENTE:");
+=======
+		System.out.println("TESTE CRIACAO DE CLIENTE:");
+>>>>>>> 9c55505af34c173cd235c517a1fdade1ed1140d7
 		ServicoCliente servicoCliente = new ServicoCliente();
 		Cliente clienteTeste = servicoCliente.solicitarCriacaoCliente("ERNESTO", "1234");
 		System.out.println("Nome: " + clienteTeste.getNome());
