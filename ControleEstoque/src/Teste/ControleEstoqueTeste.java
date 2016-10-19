@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Teste;
 
 import java.util.ArrayList;
@@ -165,6 +166,8 @@ public class ControleEstoqueTeste {
 
 }
 =======
+=======
+>>>>>>> master
 package Teste;
 
 import java.util.ArrayList;
@@ -173,7 +176,12 @@ import Entidades.Cliente;
 import Entidades.Fornecedor;
 import Entidades.MateriaPrima;
 import Entidades.Produto;
+<<<<<<< HEAD
 //import Enumeradores.TipoProduto;
+=======
+import Enumeradores.NomeMateriaPrima;
+import Enumeradores.TipoProduto;
+>>>>>>> master
 import Interface.InterfaceMenuGeral;
 import Repositorios.RepositorioCliente;
 import Repositorios.RepositorioEstoqueProduto;
@@ -191,6 +199,7 @@ public class ControleEstoqueTeste {
 
 	public static void main(String[] args) {
 		
+<<<<<<< HEAD
 		InterfaceMenuGeral.main(args);
 		
 		// testaCriacaoCliente();
@@ -202,6 +211,9 @@ public class ControleEstoqueTeste {
 		// testarInsertCliente();
 		// testarMateriaPrima();
 		// testarEstoqueMateriaPrima();
+=======
+		InterfaceMenuGeral intefaceDeMenu = new InterfaceMenuGeral();
+>>>>>>> master
 	}
 
 	private static Cliente testaCriacaoCliente() {
@@ -215,23 +227,22 @@ public class ControleEstoqueTeste {
 
 	private static void testarMateriaPrima() {
 		System.out.println("\nTESTE CRIA��O DE MATERIA PRIMA:");
-		MateriaPrima parafuso = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("parafuso", 1000);
-		System.out.println("Materia Prima: " + parafuso.getTipo());
-		System.out.println("Quantidade de " + parafuso.getTipo() + " = " + parafuso.getQuantidade());
+		MateriaPrima parafuso = ServicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.ARR);
+		System.out.println("Materia Prima: " + parafuso.getNomeMateriaPrima().getNome());
 	}
 
 	private static void testaCriacaoFornecedor() {
 		System.out.println("\nTESTE CRIA��O DE FORNECEDOR:");
 		ServicoFornecedor servicoFornecedor = new ServicoFornecedor();
-		MateriaPrima parafuso = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("parafuso", 1000);
-		MateriaPrima prego = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("prego", 100);
+		MateriaPrima parafuso = ServicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PAR);
+		MateriaPrima prego = ServicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PRC);
 		ArrayList<MateriaPrima> listMateriaPrima = new ArrayList<MateriaPrima>();
 		listMateriaPrima.add(parafuso);
 		listMateriaPrima.add(prego);
 		Fornecedor fornecedor = servicoFornecedor.solicitarCriacaoFornecedor("Gustavo", listMateriaPrima);
 		System.out.println("Nome Fornecedor: " + fornecedor.getNome());
 		for (MateriaPrima materiaPrima : listMateriaPrima) {
-			System.out.println("Materia Prima: " + materiaPrima.getTipo());
+			System.out.println("Materia Prima: " + materiaPrima.getNomeMateriaPrima().getNome());
 		}
 	}
 
@@ -296,47 +307,35 @@ public class ControleEstoqueTeste {
 	}
 	
 	public static void testarEstoqueMateriaPrima() {
-		MateriaPrima mp1 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("mp1", 1000);
-		MateriaPrima mp2 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("mp2", 1000);
-		MateriaPrima mp3 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("mp3", 1000);
-		MateriaPrima mp4 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("mp4", 1000);
-		MateriaPrima cmp22 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("cpm22", 1000);
-		MateriaPrima abc = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("abc", 1000);
+		MateriaPrima mp1 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.ARR);
+		MateriaPrima mp2 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CAL);
+		MateriaPrima mp3 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CPA);
+		MateriaPrima mp4 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PAR);
+		MateriaPrima mp5 = ServicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PRC);
 
 		// teste de insert
-		RespositorioEstoqueMateriaPrima pipoquinha = new RespositorioEstoqueMateriaPrima();
-		pipoquinha.insert(mp1);
-		pipoquinha.insert(mp2);
-		pipoquinha.insert(mp3);
-		pipoquinha.insert(mp4);
-		pipoquinha.insert(cmp22);
-		pipoquinha.insert(abc);
+		RespositorioEstoqueMateriaPrima repositorioEstoqueMateriaPrima = new RespositorioEstoqueMateriaPrima();
+		repositorioEstoqueMateriaPrima.insert(mp1);
+		repositorioEstoqueMateriaPrima.insert(mp2);
+		repositorioEstoqueMateriaPrima.insert(mp3);
+		repositorioEstoqueMateriaPrima.insert(mp4);
+		repositorioEstoqueMateriaPrima.insert(mp5);
 
 		// teste de findAll
-		ArrayList<MateriaPrima> abcfd = pipoquinha.findAll();
-		for (MateriaPrima item : abcfd) {
-			System.out.println(item.getTipo() + " " + item.getQuantidade());
+		ArrayList<MateriaPrima> materiasPrimas = repositorioEstoqueMateriaPrima.findAll();
+		for (MateriaPrima materiasPrima : materiasPrimas) {
+			System.out.println(materiasPrima.getNomeMateriaPrima().getNome());
 		}
 
 		// teste find
-		MateriaPrima hivison = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("hivison", 123);
-		pipoquinha.insert(hivison);
-		System.out.println(pipoquinha.find(hivison).getTipo());
+		MateriaPrima materiaPrima = ServicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CAL);
+		repositorioEstoqueMateriaPrima.insert(materiaPrima);
+		System.out.println(repositorioEstoqueMateriaPrima.find(materiaPrima).getNomeMateriaPrima().getNome());
 
-		
-		//DELETE QUEBRADO
-		//pipoquinha.delete(hivison);
-		abcfd = pipoquinha.findAll();
-		for (MateriaPrima item : abcfd) {
-			System.out.println(item.getTipo() + " " + item.getQuantidade());
-		}
-
-		
-		//UPDATE QUEBRADO
-		//MateriaPrima update = ServicoMateriaPrima.solicitarCriacaoMateriaPrima("update", 1506);
-		// pipoquinha.update(ronaldo2);
-		// System.out.println(pipoquinha.find(ronaldo).getQuantidade());
 	}
 
 }
+<<<<<<< HEAD
 >>>>>>> origin/Hivison
+=======
+>>>>>>> master

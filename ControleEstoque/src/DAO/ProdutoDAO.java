@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 package DAO;
 
@@ -34,6 +35,12 @@ package DAO;
 
 import java.sql.SQLException;
 
+=======
+package DAO;
+
+import java.sql.SQLException;
+
+>>>>>>> master
 public class ProdutoDAO extends DAO{
   
   public static void main (String args[]){
@@ -60,4 +67,7 @@ public class ProdutoDAO extends DAO{
   }
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master

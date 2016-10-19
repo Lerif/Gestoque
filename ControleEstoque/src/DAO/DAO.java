@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package DAO;
 
 import java.sql.PreparedStatement;
@@ -50,6 +51,8 @@ public abstract class DAO {
   
 }
 =======
+=======
+>>>>>>> master
 package DAO;
 
 import java.sql.PreparedStatement;
@@ -99,5 +102,9 @@ public abstract class DAO {
       }
   }
   
+<<<<<<< HEAD
 }
 >>>>>>> origin/Hivison
+=======
+}
+>>>>>>> master

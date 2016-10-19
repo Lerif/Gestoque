@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Enumeradores;
 
 public enum TipoProduto {
@@ -31,6 +32,8 @@ public enum TipoProduto {
 
 }
 =======
+=======
+>>>>>>> master
 package Enumeradores;
 
 public enum TipoProduto {
@@ -62,4 +65,7 @@ public enum TipoProduto {
 	}
 
 }
+<<<<<<< HEAD
 >>>>>>> origin/Hivison
+=======
+>>>>>>> master

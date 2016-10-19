@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Repositorios;
 
 import java.util.ArrayList;
@@ -44,16 +45,17 @@ public class RepositorioEstoqueProduto implements RepositorioGenerico<Produto>{
 //	}
 }
 =======
+=======
+>>>>>>> master
 package Repositorios;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import Entidades.Produto;
 
 public class RepositorioEstoqueProduto implements RepositorioGenerico<Produto>{
 
-	public ArrayList<Produto> estoqueProduto = new ArrayList<Produto>();
+	public static ArrayList<Produto> estoqueProduto = new ArrayList<Produto>();
 	
 	public RepositorioEstoqueProduto() {
 		
@@ -81,12 +83,15 @@ public class RepositorioEstoqueProduto implements RepositorioGenerico<Produto>{
 //	}
 
 	public List<Produto> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return estoqueProduto;
 	}
 	
 //	RepositorioEstoqueProduto find(RepositorioEstoqueProduto obj){
 //		
 //	}
+<<<<<<< HEAD
 }
 >>>>>>> origin/Hivison
+=======
+}
+>>>>>>> master

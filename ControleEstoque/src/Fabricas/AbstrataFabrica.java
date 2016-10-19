@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Fabricas;
 
 public abstract class AbstrataFabrica <E>{
@@ -8,6 +9,8 @@ public abstract class AbstrataFabrica <E>{
 	}
 }
 =======
+=======
+>>>>>>> master
 package Fabricas;
 
 public abstract class AbstrataFabrica <E>{
@@ -16,4 +19,7 @@ public abstract class AbstrataFabrica <E>{
 	    return (E)e;
 	}
 }
+<<<<<<< HEAD
 >>>>>>> origin/Hivison
+=======
+>>>>>>> master

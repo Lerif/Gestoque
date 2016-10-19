@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Entidades;
 
 public class Cliente {
@@ -32,6 +33,8 @@ public class Cliente {
 	}
 }
 =======
+=======
+>>>>>>> master
 package Entidades;
 
 public class Cliente {
@@ -39,7 +42,11 @@ public class Cliente {
 	private String nome;
 	private String cnpj;
 	
+<<<<<<< HEAD
 	private Cliente(String nome,String cnpj) {
+=======
+	public Cliente(String nome,String cnpj) {
+>>>>>>> master
       this.setNome(nome);
       this.setCnpj(cnpj);		
 	}
@@ -63,5 +70,9 @@ public class Cliente {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+<<<<<<< HEAD
 }
 >>>>>>> origin/Hivison
+=======
+}
+>>>>>>> master

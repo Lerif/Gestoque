@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Fabricas;
 
 import Entidades.Produto;
@@ -27,6 +28,11 @@ package Fabricas;
 
 import Entidades.Produto;
 //import Enumeradores.TipoProduto;
+=======
+package Fabricas;
+
+import Entidades.Produto;
+>>>>>>> master
 
 public class FabricaProduto extends AbstrataFabrica<FabricaProduto>{
 
@@ -38,6 +44,7 @@ public class FabricaProduto extends AbstrataFabrica<FabricaProduto>{
 		return new FabricaProduto();
 	}
 
+<<<<<<< HEAD
 /*	public Produto novo(String codigo, TipoProduto tipo){
 		return Produto.novo(codigo, tipo);
 	}
@@ -47,3 +54,9 @@ public class FabricaProduto extends AbstrataFabrica<FabricaProduto>{
 	}
 }
 >>>>>>> origin/Hivison
+=======
+	public Produto novo(String codigo, String nome){
+		return Produto.novo(codigo, nome);
+	}
+}
+>>>>>>> master

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Servicos;
 
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ public class ServicoFornecedor {
 	}
 }
 =======
+=======
+>>>>>>> master
 package Servicos;
 
 import java.util.ArrayList;
@@ -31,5 +34,9 @@ public class ServicoFornecedor {
 	public Fornecedor solicitarCriacaoFornecedor(String nome, ArrayList<MateriaPrima> listMateriaPrima){
 		return FabricaFornecedor.nova().novo(nome, listMateriaPrima);
 	}
+<<<<<<< HEAD
 }
 >>>>>>> origin/Hivison
+=======
+}
+>>>>>>> master

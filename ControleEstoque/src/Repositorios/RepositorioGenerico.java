@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Repositorios;
 
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ public interface RepositorioGenerico<T> {
 //	T find(T obj);
 }
 =======
+=======
+>>>>>>> master
 package Repositorios;
 
 import java.util.ArrayList;
@@ -24,4 +27,7 @@ public interface RepositorioGenerico<T> {
 	List<T> findAll();
 //	T find(T obj);
 }
+<<<<<<< HEAD
 >>>>>>> origin/Hivison
+=======
+>>>>>>> master

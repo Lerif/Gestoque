@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 package DAO;
 
@@ -44,6 +45,18 @@ import java.util.logging.Logger;
 
 public class ConnectionFactory {
 
+=======
+package DAO;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class ConnectionFactory {
+
+>>>>>>> master
   private static Connection connection = null;
   private static final String DRIVER = "org.postgresql.Driver";
   private static final String URL = "jdbc:postgresql://localhost:5432/estoque";
@@ -68,4 +81,7 @@ public class ConnectionFactory {
     return connection;
   }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master

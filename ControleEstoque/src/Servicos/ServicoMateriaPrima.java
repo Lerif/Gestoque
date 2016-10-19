@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Servicos;
 
 import Entidades.MateriaPrima;
@@ -21,6 +22,12 @@ public class ServicoMateriaPrima {
 package Servicos;
 
 import Entidades.MateriaPrima;
+=======
+package Servicos;
+
+import Entidades.MateriaPrima;
+import Enumeradores.NomeMateriaPrima;
+>>>>>>> master
 import Fabricas.FabricaMateriaPrima;
 
 public class ServicoMateriaPrima {
@@ -32,8 +39,15 @@ public class ServicoMateriaPrima {
 		return new ServicoMateriaPrima();
 	}
 
+<<<<<<< HEAD
 	public static MateriaPrima solicitarCriacaoMateriaPrima(String tipo, int quantidade) {
 		return FabricaMateriaPrima.nova().nova(tipo, quantidade);
 	}
 }
 >>>>>>> origin/Hivison
+=======
+	public static MateriaPrima solicitarCriacaoMateriaPrima(NomeMateriaPrima nomeMateriaPrima) {
+		return FabricaMateriaPrima.nova().nova(nomeMateriaPrima);
+	}
+}
+>>>>>>> master

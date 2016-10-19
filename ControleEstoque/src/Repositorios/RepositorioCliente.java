@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Repositorios;
 
 import java.util.ArrayList;
@@ -35,6 +36,8 @@ public class RepositorioCliente implements RepositorioGenerico<Cliente> {
 
 }
 =======
+=======
+>>>>>>> master
 package Repositorios;
 
 import java.util.ArrayList;
@@ -70,4 +73,7 @@ public class RepositorioCliente implements RepositorioGenerico<Cliente> {
 	}
 
 }
+<<<<<<< HEAD
 >>>>>>> origin/Hivison
+=======
+>>>>>>> master

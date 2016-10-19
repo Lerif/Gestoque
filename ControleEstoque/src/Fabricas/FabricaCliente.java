@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Fabricas;
 
 import Entidades.Cliente;
@@ -18,6 +19,8 @@ public class FabricaCliente extends AbstrataFabrica<FabricaCliente> {
 	}
 }
 =======
+=======
+>>>>>>> master
 package Fabricas;
 
 import Entidades.Cliente;
@@ -36,4 +39,7 @@ public class FabricaCliente extends AbstrataFabrica<FabricaCliente> {
 		return Cliente.novo(nome, cnpj);
 	}
 }
+<<<<<<< HEAD
 >>>>>>> origin/Hivison
+=======
+>>>>>>> master

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Servicos;
 
 import Entidades.Cliente;
@@ -26,6 +27,8 @@ public class ServicoCliente {
 	}
 
 =======
+=======
+>>>>>>> master
 package Servicos;
 
 import Entidades.Cliente;
@@ -40,5 +43,9 @@ public class ServicoCliente {
 	public Cliente solicitarCriacaoCliente(String nome, String cnpj){
 		return FabricaCliente.nova().criarCliente(nome, cnpj);
 	}
+<<<<<<< HEAD
 }
 >>>>>>> origin/Hivison
+=======
+}
+>>>>>>> master

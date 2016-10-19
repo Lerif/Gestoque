@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Entidades;
 
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class Fornecedor{
 	}
 }
 =======
+=======
+>>>>>>> master
 package Entidades;
 
 import java.util.ArrayList;
@@ -68,4 +71,7 @@ public class Fornecedor{
 		this.listMateriaPrima = listMateriaPrima;
 	}
 }
+<<<<<<< HEAD
 >>>>>>> origin/Hivison
+=======
+>>>>>>> master

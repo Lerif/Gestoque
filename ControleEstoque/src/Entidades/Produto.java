@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Entidades;
 
 //import Enumeradores.TipoProduto;
@@ -105,6 +106,24 @@ public class Produto {
 	public static Produto novo(String codigo, String nome){
 		return new Produto(codigo, nome);
 	}
+=======
+package Entidades;
+
+public class Produto {
+
+	private String codigo;
+	private String nome;
+
+	private Produto(String codigo, String nome) {
+		this.codigo = codigo;
+		this.nome = nome;
+	}
+
+	public static Produto novo(String codigo, String nome) {
+		return new Produto(codigo, nome);
+	}
+
+>>>>>>> master
 	public String getCodigo() {
 		return codigo;
 	}
@@ -112,6 +131,7 @@ public class Produto {
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
+<<<<<<< HEAD
 /*
 	public TipoProduto getTipo() {
 		return tipo;
@@ -142,6 +162,8 @@ public class Produto {
 	    }
 	    return true;
 	}
+=======
+>>>>>>> master
 
 	public String getNome() {
 		return nome;
@@ -151,5 +173,9 @@ public class Produto {
 		this.nome = nome;
 	}
 
+<<<<<<< HEAD
 }
 >>>>>>> origin/Hivison
+=======
+}
+>>>>>>> master

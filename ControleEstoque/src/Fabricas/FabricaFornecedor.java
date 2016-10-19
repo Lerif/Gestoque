@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 package Fabricas;
 
 import java.util.ArrayList;
@@ -21,6 +22,8 @@ public class FabricaFornecedor extends AbstrataFabrica<FabricaFornecedor>{
 	}
 }
 =======
+=======
+>>>>>>> master
 package Fabricas;
 
 import java.util.ArrayList;
@@ -42,4 +45,7 @@ public class FabricaFornecedor extends AbstrataFabrica<FabricaFornecedor>{
 		return Fornecedor.novo(nome, listMateriaPrima);
 	}
 }
+<<<<<<< HEAD
 >>>>>>> origin/Hivison
+=======
+>>>>>>> master
