@@ -22,7 +22,15 @@ public class AgregadorProdutoMateriaPrima {
 
 	@Override
 	public String toString() {
-		return this.produto.getNome() + " - " + this.materiaPrima.size();
+
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(this.produto.getNome() + "\n\n");
+
+		for (MateriaPrima materiaPrima : this.materiaPrima) {
+			stringBuilder.append("      * " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
+		}
+
+		return stringBuilder.toString();
 	}
 
 	public Produto produto() {
