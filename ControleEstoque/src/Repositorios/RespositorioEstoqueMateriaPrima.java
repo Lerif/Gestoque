@@ -17,7 +17,7 @@ public class RespositorioEstoqueMateriaPrima implements RepositorioGenerico<Mate
 
 	public void delete(MateriaPrima materiaPrima) {
 		for (MateriaPrima materiaPrimaItem : estoqueMateriaPrima) {
-			if (materiaPrima.getNomeMateriaPrima().equals(materiaPrimaItem.getNomeMateriaPrima()))
+			if (materiaPrima.getTipo().equals(materiaPrimaItem.getTipo()))
 				estoqueMateriaPrima.remove(materiaPrimaItem);
 		}
 	}
@@ -33,7 +33,7 @@ public class RespositorioEstoqueMateriaPrima implements RepositorioGenerico<Mate
 
 	public void update(MateriaPrima materiaPrima) {
 		for (MateriaPrima materiaPrimaItem : estoqueMateriaPrima) {
-			if (materiaPrima.getNomeMateriaPrima().equals(materiaPrimaItem.getNomeMateriaPrima())) {
+			if (materiaPrima.getTipo().equals(materiaPrimaItem.getTipo())) {
 				estoqueMateriaPrima.remove(materiaPrimaItem);
 				estoqueMateriaPrima.add(materiaPrima);
 			}
@@ -47,7 +47,7 @@ public class RespositorioEstoqueMateriaPrima implements RepositorioGenerico<Mate
 
 	public MateriaPrima find(MateriaPrima materiaPrima) {
 		for (MateriaPrima materiaPrimaItem : estoqueMateriaPrima) {
-			if (materiaPrima.getNomeMateriaPrima().equals(materiaPrimaItem.getNomeMateriaPrima())) {
+			if (materiaPrima.getTipo().equals(materiaPrimaItem.getTipo())) {
 				return materiaPrimaItem;
 			}
 		}
