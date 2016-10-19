@@ -1,7 +1,7 @@
+<<<<<<< HEAD
 package Fabricas;
 
 import Entidades.MateriaPrima;
-import Enumeradores.NomeMateriaPrima;
 
 public class FabricaMateriaPrima extends AbstrataFabrica<FabricaMateriaPrima> {
 
@@ -12,7 +12,26 @@ public class FabricaMateriaPrima extends AbstrataFabrica<FabricaMateriaPrima> {
 		return new FabricaMateriaPrima();
 	}
 
-	public MateriaPrima nova(NomeMateriaPrima nomeMateriaPrima) {
-		return MateriaPrima.nova(nomeMateriaPrima);
+	public MateriaPrima nova(String tipo, int quantidade) {
+		return MateriaPrima.nova(tipo, quantidade);
 	}
 }
+=======
+package Fabricas;
+
+import Entidades.MateriaPrima;
+
+public class FabricaMateriaPrima extends AbstrataFabrica<FabricaMateriaPrima> {
+
+	private FabricaMateriaPrima() {
+	}
+
+	public static FabricaMateriaPrima nova() {
+		return new FabricaMateriaPrima();
+	}
+
+	public MateriaPrima nova(String tipo, int quantidade) {
+		return MateriaPrima.nova(tipo, quantidade);
+	}
+}
+>>>>>>> origin/Hivison

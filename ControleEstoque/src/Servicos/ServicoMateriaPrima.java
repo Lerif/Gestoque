@@ -1,28 +1,39 @@
+<<<<<<< HEAD
 package Servicos;
 
-import java.util.List;
-
 import Entidades.MateriaPrima;
-import Enumeradores.NomeMateriaPrima;
 import Fabricas.FabricaMateriaPrima;
-import Repositorios.RespositorioEstoqueMateriaPrima;
 
 public class ServicoMateriaPrima {
 
-	private RespositorioEstoqueMateriaPrima repositorioDeEstoqueMateriaPrima;
-	
-	public ServicoMateriaPrima() {
-		repositorioDeEstoqueMateriaPrima = new RespositorioEstoqueMateriaPrima();
+	private ServicoMateriaPrima() {
 	}
 
-	public MateriaPrima solicitarCriacaoMateriaPrima(NomeMateriaPrima nomeMateriaPrima) {
-		MateriaPrima nova = FabricaMateriaPrima.nova().nova(nomeMateriaPrima);
-		repositorioDeEstoqueMateriaPrima.insert(nova);
-		return nova;
-	}
-	
-	public List<MateriaPrima> buscarTodos(){
-		return repositorioDeEstoqueMateriaPrima.findAll();
+	public static ServicoMateriaPrima novo() {
+		return new ServicoMateriaPrima();
 	}
 
+	public static MateriaPrima solicitarCriacaoMateriaPrima(String tipo, int quantidade) {
+		return FabricaMateriaPrima.nova().nova(tipo, quantidade);
+	}
 }
+=======
+package Servicos;
+
+import Entidades.MateriaPrima;
+import Fabricas.FabricaMateriaPrima;
+
+public class ServicoMateriaPrima {
+
+	private ServicoMateriaPrima() {
+	}
+
+	public static ServicoMateriaPrima novo() {
+		return new ServicoMateriaPrima();
+	}
+
+	public static MateriaPrima solicitarCriacaoMateriaPrima(String tipo, int quantidade) {
+		return FabricaMateriaPrima.nova().nova(tipo, quantidade);
+	}
+}
+>>>>>>> origin/Hivison

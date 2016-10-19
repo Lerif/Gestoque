@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+package Agregadores;
+
+public class AgregadorProdutoMateriaPrima {
+
+	int quantidade;
+	
+	public AgregadorProdutoMateriaPrima(int quantidade) {
+		this.quantidade = quantidade;
+	}
+}
+=======
 package Agregadores;
 
 public class AgregadorProdutoMateriaPrima {
@@ -10,3 +22,4 @@ public class AgregadorProdutoMateriaPrima {
 		}
 	}
 
+>>>>>>> origin/Hivison
