@@ -167,12 +167,12 @@ public class InterfaceMenuGeral extends JFrame {
 
 		for (AgregadorProdutoMateriaPrima produtoMateriaPrima : produtosMateriasPrimas) {
 
-			mostrarNaTela.append(produtoMateriaPrima.produto().getCodigo() + " - "
-					+ produtoMateriaPrima.produto().getNome() + " \n\n");
+			mostrarNaTela.append(" \n" + produtoMateriaPrima.produto().getCodigo() + " - "
+					+ produtoMateriaPrima.produto().getNome() + " \n");
 
 			for (MateriaPrima materiaPrima : produtoMateriaPrima.materiasPrimas()) {
 
-				mostrarNaTela.append("    *" + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
+				mostrarNaTela.append("    ø " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
 
 			}
 
