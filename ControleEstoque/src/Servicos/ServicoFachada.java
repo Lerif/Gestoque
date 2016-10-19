@@ -41,4 +41,16 @@ public class ServicoFachada {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public List<Produto> buscarListaProdutos() {
+		
+		ServicoProduto servicoProduto = new ServicoProduto();
+		return servicoProduto.buscarTodos();
+	}
+
+	public List<AgregadorProdutoMateriaPrima> buscarListProdutoMateriaPrima() {
+		ServicoProdutoMateriaPrima servicoProdutoMateriaPrima = new ServicoProdutoMateriaPrima();
+		return servicoProdutoMateriaPrima.buscarTodosProdutosMateriaPrima();
+		
+	}
 }

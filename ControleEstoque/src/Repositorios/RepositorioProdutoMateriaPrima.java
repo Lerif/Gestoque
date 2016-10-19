@@ -9,7 +9,7 @@ import Entidades.Produto;
 
 public class RepositorioProdutoMateriaPrima implements RepositorioGenerico<AgregadorProdutoMateriaPrima> {
 
-	ArrayList<AgregadorProdutoMateriaPrima> estoqueMateriaPrima = new ArrayList<AgregadorProdutoMateriaPrima>();
+	static List<AgregadorProdutoMateriaPrima> estoqueMateriaPrima = new ArrayList<AgregadorProdutoMateriaPrima>();
 	
 	public List<MateriaPrima> findByProduto(Produto produto){
 		for (AgregadorProdutoMateriaPrima agregadorProdutoMateriaPrima : estoqueMateriaPrima) 

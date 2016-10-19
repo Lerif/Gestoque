@@ -11,7 +11,7 @@ import Repositorios.RepositorioProdutoMateriaPrima;
 public class ServicoProdutoMateriaPrima {
 	
 	FabricaAgregadorProdutoMateriaPrima fabricaAgregadorProdutoMateriaPrima;
-	RepositorioProdutoMateriaPrima repositorioProdutoMateriaPrima;
+	static RepositorioProdutoMateriaPrima repositorioProdutoMateriaPrima;
 	
 	public ServicoProdutoMateriaPrima() {
 		fabricaAgregadorProdutoMateriaPrima = new FabricaAgregadorProdutoMateriaPrima();
@@ -26,6 +26,11 @@ public class ServicoProdutoMateriaPrima {
 	
 	public List<MateriaPrima> buscarPorProduto(Produto produto){
 		return repositorioProdutoMateriaPrima.findByProduto(produto);
+	}
+
+	public List<AgregadorProdutoMateriaPrima> buscarTodosProdutosMateriaPrima() {
+		// TODO Auto-generated method stub
+		return repositorioProdutoMateriaPrima.findAll();
 	}
 	
 
