@@ -22,16 +22,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
-import javax.swing.WindowConstants;
-
 import Agregadores.AgregadorProdutoMateriaPrima;
-
-import java.awt.FlowLayout;
 import javax.swing.JCheckBox;
-
 import Entidades.MateriaPrima;
-import Entidades.Produto;
 import Enumeradores.NomeMateriaPrima;
 import Servicos.ServicoFachada;
 
@@ -172,7 +165,7 @@ public class InterfaceMenuGeral extends JFrame {
 
 			for (MateriaPrima materiaPrima : produtoMateriaPrima.materiasPrimas()) {
 
-				mostrarNaTela.append("    ø " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
+				mostrarNaTela.append("    ï¿½ " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
 
 			}
 
