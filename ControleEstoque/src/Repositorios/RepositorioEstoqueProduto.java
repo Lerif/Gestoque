@@ -2,7 +2,6 @@ package Repositorios;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import Entidades.Produto;
 
 public class RepositorioEstoqueProduto implements RepositorioGenerico<Produto>{

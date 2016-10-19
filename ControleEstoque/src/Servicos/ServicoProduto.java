@@ -3,7 +3,6 @@ package Servicos;
 import java.util.List;
 
 import Entidades.Produto;
-//import Enumeradores.TipoProduto;
 import Fabricas.FabricaProduto;
 import Repositorios.RepositorioEstoqueProduto;
 
