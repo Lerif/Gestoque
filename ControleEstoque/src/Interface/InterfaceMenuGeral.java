@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+<<<<<<< HEAD
 import Entidades.Produto;
 import Servicos.ServicoFachada;
 
@@ -25,14 +26,21 @@ public class InterfaceMenuGeral extends JFrame {
 
 	static ServicoFachada servicoFachada = new ServicoFachada();
 
+=======
+public class InterfaceMenuGeral extends JFrame {
+
+>>>>>>> origin/Hivison
 	public InterfaceMenuGeral() {
 
 		initUI();
 	}
+<<<<<<< HEAD
 	
 	public void iniciarInterface(){
 		initUI();
 	}
+=======
+>>>>>>> origin/Hivison
 
 	private void initUI() {
 
@@ -124,7 +132,11 @@ public class InterfaceMenuGeral extends JFrame {
 
 		JMenu SairMenu = new JMenu("Sair");
 		SairMenu.addActionListener((ActionEvent event) -> {
+<<<<<<< HEAD
 			// this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+=======
+			//this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+>>>>>>> origin/Hivison
 		});
 
 		FuncionalidadeMenu.add(FabricaMenu);
@@ -182,9 +194,14 @@ public class InterfaceMenuGeral extends JFrame {
 
 		botaoCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 
 				// System.out.println("Codigo: " + produto.getCodigo());
 				// System.out.println("Tipo do produto: " + produto.getNome());
+=======
+				System.out.println("id: " + NomeCliente.getText());
+				System.out.println("produto: " + CPFCliente.getText());
+>>>>>>> origin/Hivison
 			}
 		});
 
@@ -218,17 +235,29 @@ public class InterfaceMenuGeral extends JFrame {
 		panel.add(labelId);
 		idDoPedido.setPreferredSize(new Dimension(100, 20));
 		panel.add(idDoPedido);
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> origin/Hivison
 		labelNome.setHorizontalAlignment(0);
 		panel.add(labelNome);
 		NomeDoProduto.setPreferredSize(new Dimension(100, 20));
 		panel.add(NomeDoProduto);
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> origin/Hivison
 		labelCodigo.setHorizontalAlignment(0);
 		panel.add(labelCodigo);
 		CodigoDoProduto.setPreferredSize(new Dimension(100, 20));
 		panel.add(CodigoDoProduto);
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> origin/Hivison
 		labelQuantidade.setHorizontalAlignment(0);
 		panel.add(labelQuantidade);
 		QuantidadeDoProduto.setPreferredSize(new Dimension(100, 20));
@@ -250,7 +279,11 @@ public class InterfaceMenuGeral extends JFrame {
 				System.out.println("produto: " + CodigoDoProduto.getText());
 				System.out.println("produto: " + NomeDoProduto.getText());
 				System.out.println("produto: " + QuantidadeDoProduto.getText());
+<<<<<<< HEAD
 
+=======
+				
+>>>>>>> origin/Hivison
 			}
 		});
 
@@ -298,12 +331,17 @@ public class InterfaceMenuGeral extends JFrame {
 
 		botaoCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 				
 				Produto produto = servicoFachada.cadastrarProduto(idDoProduto.getText(),nomeDoProduto.getText());
 				
 				System.out.println("Codigo: " + produto.getCodigo());
 				System.out.println("Tipo do produto: "
 						+ produto.getNome());
+=======
+				System.out.println("id: " + idDoProduto.getText());
+				System.out.println("produto: " + nomeDoProduto.getText());
+>>>>>>> origin/Hivison
 			}
 		});
 
