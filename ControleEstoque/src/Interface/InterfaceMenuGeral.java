@@ -165,7 +165,7 @@ public class InterfaceMenuGeral extends JFrame {
 
 			for (MateriaPrima materiaPrima : produtoMateriaPrima.materiasPrimas()) {
 
-				mostrarNaTela.append("    � " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
+				mostrarNaTela.append("    * " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
 
 			}
 
@@ -383,7 +383,7 @@ public class InterfaceMenuGeral extends JFrame {
 						servicoFachada.cadastrarProduto(idDoProduto.getText(), nomeDoProduto.getText()),
 						materiasPrimas);
 
-				// System.out.println(agregadorProdutoMateriaPrima.toString());
+				
 				JOptionPane.showMessageDialog(frame, agregadorProdutoMateriaPrima.toString());
 			}
 		});
