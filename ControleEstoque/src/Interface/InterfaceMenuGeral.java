@@ -1,24 +1,31 @@
 package Interface;
 
+import java.awt.Component;
 import java.awt.Dimension;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
-
-import Entidades.Produto;
+import Agregadores.AgregadorProdutoMateriaPrima;
+import javax.swing.JCheckBox;
+import Entidades.MateriaPrima;
+import Enumeradores.NomeMateriaPrima;
 import Servicos.ServicoFachada;
 
 public class InterfaceMenuGeral extends JFrame {
@@ -29,8 +36,8 @@ public class InterfaceMenuGeral extends JFrame {
 
 		initUI();
 	}
-	
-	public void iniciarInterface(){
+
+	public void iniciarInterface() {
 		initUI();
 	}
 
@@ -91,6 +98,11 @@ public class InterfaceMenuGeral extends JFrame {
 		JMenuItem SaidaProdutoMi = new JMenuItem("Gerar saída de Produto");
 		JMenuItem ListarAndamentoProducao = new JMenuItem("Listar andamento da produção");
 		JMenuItem ListarInsumosProduto = new JMenuItem("Listar insumos do produto");
+
+		ListarInsumosProduto.addActionListener((ActionEvent event) -> {
+			interfaceListarInsumosProduto();
+		});
+
 		JMenuItem ListarPedidos = new JMenuItem("Listar pedidos");
 		JMenuItem CadastrarProdutoNovo = new JMenuItem("Cadastrar produto novo");
 
@@ -138,6 +150,29 @@ public class InterfaceMenuGeral extends JFrame {
 		menubar.add(SairMenu);
 
 		setJMenuBar(menubar);
+	}
+
+	private void interfaceListarInsumosProduto() {
+		
+		List<AgregadorProdutoMateriaPrima> produtosMateriasPrimas = servicoFachada.buscarListProdutoMateriaPrima();
+
+		StringBuilder mostrarNaTela = new StringBuilder();
+
+		for (AgregadorProdutoMateriaPrima produtoMateriaPrima : produtosMateriasPrimas) {
+
+			mostrarNaTela.append(" \n" + produtoMateriaPrima.produto().getCodigo() + " - "
+					+ produtoMateriaPrima.produto().getNome() + " \n");
+
+			for (MateriaPrima materiaPrima : produtoMateriaPrima.materiasPrimas()) {
+
+				mostrarNaTela.append("    � " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
+
+			}
+
+		}
+		JFrame frame = new JFrame("Gestoque - Listagem de insumos");
+		JOptionPane.showMessageDialog(frame, mostrarNaTela.toString());
+		//System.out.println(mostrarNaTela.toString());
 	}
 
 	public static void main(String[] args) {
@@ -235,12 +270,12 @@ public class InterfaceMenuGeral extends JFrame {
 		panel.add(QuantidadeDoProduto);
 
 		panel.add(botaoCadastrar);
-		frame.setSize(340, 150);
+		frame.setSize(300, 300);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
 		panel.add(botaoCancelar);
-		frame.setSize(340, 150);
+		frame.setSize(300, 300);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
@@ -266,6 +301,7 @@ public class InterfaceMenuGeral extends JFrame {
 
 	// criar interface cadastro produto;
 	public static void interfaceCadastroProduto() {
+
 		JFrame frame = new JFrame("Gestoque - Cadastro de Produtos");
 		frame.setLocationRelativeTo(null);
 		JPanel panel = new JPanel();
@@ -275,6 +311,12 @@ public class InterfaceMenuGeral extends JFrame {
 		final JTextField nomeDoProduto = new JTextField();
 		JButton botaoCadastrar = new JButton("Cadastrar");
 		JButton botaoCancelar = new JButton("Cancelar");
+
+		JCheckBox jcbParafuso = new JCheckBox("Parafuso");
+		JCheckBox jcbPorca = new JCheckBox("Porca");
+		JCheckBox jcbArruela = new JCheckBox("Arruela");
+		JCheckBox jcbAco = new JCheckBox("Chapa de Aço");
+		JCheckBox jcbAluminio = new JCheckBox("Chapa de alumínio");
 
 		labelId.setHorizontalAlignment(0);
 		panel.add(labelId);
@@ -287,23 +329,62 @@ public class InterfaceMenuGeral extends JFrame {
 		panel.add(nomeDoProduto);
 
 		panel.add(botaoCadastrar);
-		frame.setSize(300, 100);
+		frame.setSize(300, 300);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
 		panel.add(botaoCancelar);
-		frame.setSize(300, 100);
+		frame.setSize(300, 300);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
+		jcbParafuso.setHorizontalAlignment(0);
+		jcbParafuso.setPreferredSize(new Dimension(100, 50));
+		panel.add(jcbParafuso);
+
+		jcbPorca.setHorizontalAlignment(0);
+		jcbPorca.setPreferredSize(new Dimension(100, 50));
+		panel.add(jcbPorca);
+
+		jcbArruela.setHorizontalAlignment(0);
+		jcbArruela.setPreferredSize(new Dimension(100, 50));
+		panel.add(jcbArruela);
+
+		jcbAco.setHorizontalAlignment(0);
+		jcbAco.setPreferredSize(new Dimension(100, 50));
+		panel.add(jcbAco);
+
+		jcbAluminio.setHorizontalAlignment(0);
+		jcbAluminio.setPreferredSize(new Dimension(100, 50));
+		panel.add(jcbAluminio);
+
 		botaoCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Produto produto = servicoFachada.cadastrarProduto(idDoProduto.getText(),nomeDoProduto.getText());
-				
-				System.out.println("Codigo: " + produto.getCodigo());
-				System.out.println("Tipo do produto: "
-						+ produto.getNome());
+
+				List<MateriaPrima> materiasPrimas = new ArrayList<MateriaPrima>();
+
+				if (jcbParafuso.isSelected() == true) {
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.PAR));
+				}
+				if (jcbPorca.isSelected() == true) {
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.PRC));
+				}
+				if (jcbArruela.isSelected() == true) {
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.ARR));
+				}
+				if (jcbAco.isSelected() == true) {
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.CPA));
+				}
+				if (jcbAluminio.isSelected() == true) {
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.CAL));
+				}
+
+				AgregadorProdutoMateriaPrima agregadorProdutoMateriaPrima = servicoFachada.associarProdutoMateriaPrima(
+						servicoFachada.cadastrarProduto(idDoProduto.getText(), nomeDoProduto.getText()),
+						materiasPrimas);
+
+				// System.out.println(agregadorProdutoMateriaPrima.toString());
+				JOptionPane.showMessageDialog(frame, agregadorProdutoMateriaPrima.toString());
 			}
 		});
 
