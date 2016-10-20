@@ -6,34 +6,33 @@ import java.util.List;
 import Entidades.OrdemDeServico;
 
 public class RepositorioOrdemDeServico implements RepositorioGenerico<OrdemDeServico> {
-	
+
 	public static List<OrdemDeServico> ordemDeServicos = new ArrayList<>();
 
 	@Override
 	public ArrayList<OrdemDeServico> select(OrdemDeServico ordemDeServico) {
 		ArrayList<OrdemDeServico> retornoSelect = new ArrayList<>();
-		for (OrdemDeServico ordemDeServicoLista : ordemDeServicos){
-			if(ordemDeServicos.contains(ordemDeServico.hashCode())){
+		for (OrdemDeServico ordemDeServicoLista : ordemDeServicos) {
+			if (ordemDeServicos.contains(ordemDeServico.hashCode())) {
 				retornoSelect.add(ordemDeServicoLista);
-			}else{
+			} else {
 				retornoSelect = null;
 			}
-				
+
 		}
-			
+
 		return retornoSelect;
 	}
 
 	@Override
 	public void insert(OrdemDeServico ordemDeServico) {
 		ordemDeServicos.add(ordemDeServico);
-		
+
 	}
 
 	@Override
 	public List<OrdemDeServico> findAll() {
-		
 		return ordemDeServicos;
 	}
-	
+
 }
