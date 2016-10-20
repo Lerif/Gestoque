@@ -1,5 +1,6 @@
 package Servicos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Entidades.Produto;
@@ -33,6 +34,17 @@ public class ServicoProduto {
 	public List<Produto> buscarTodos() {
 		// TODO Auto-generated method stub
 		return repositorioProduto.findAll();
+	}
+	
+	public Object[] arrayStringFromProdutos(){
+		
+		List<String> stringProdutos = new ArrayList<>();
+		
+		for (Produto produto : this.buscarTodos()) {
+			stringProdutos.add(produto.toString());
+		}
+		
+		return (Object[]) stringProdutos.toArray();
 	}
 	
 }

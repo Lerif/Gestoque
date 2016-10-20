@@ -47,6 +47,12 @@ public class OrdemDeServico {
 	public void setAgregadorProdutoMateriaPrima(AgregadorProdutoMateriaPrima agregadorProdutoMateriaPrima) {
 		this.agregadorProdutoMateriaPrima = agregadorProdutoMateriaPrima;
 	}
+
+	@Override
+	public String toString() {
+		return codigo + " - "+ agregadorProdutoMateriaPrima.produto().getNome();
+	}
+	
 	
 	
 

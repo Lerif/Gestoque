@@ -10,7 +10,7 @@ public class RepositorioOrdemDeServico implements RepositorioGenerico<OrdemDeSer
 	public static List<OrdemDeServico> ordemDeServicos = new ArrayList<>();
 
 	@Override
-	public ArrayList<OrdemDeServico> select(OrdemDeServico ordemDeServico) { //This will smell
+	public ArrayList<OrdemDeServico> select(OrdemDeServico ordemDeServico) {
 		ArrayList<OrdemDeServico> retornoSelect = new ArrayList<>();
 		for (OrdemDeServico ordemDeServicoLista : ordemDeServicos) {
 			if (ordemDeServicos.contains(ordemDeServico.hashCode())) {
