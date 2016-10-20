@@ -8,6 +8,7 @@ import Entidades.Produto;
 public class AgregadorProdutoMateriaPrima {
 
 	private List<MateriaPrima> materiaPrima;
+	private MateriaPrima materiaPrima1;
 	private Produto produto;
 
 	private AgregadorProdutoMateriaPrima(List<MateriaPrima> materiaPrima, Produto produto) {
@@ -24,9 +25,11 @@ public class AgregadorProdutoMateriaPrima {
 
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(this.produto.getNome() + "\n\n");
+		
 
 		for (MateriaPrima materiaPrima : this.materiaPrima) {
-			stringBuilder.append("      * " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
+			stringBuilder.append("      * " + "Materia Prima: " + materiaPrima.getNomeMateriaPrima().getNome() + "  Quantidade: " + materiaPrima.getQuantidadeMateriaPrima()  + "\n"  );
+			
 		}
 
 		return stringBuilder.toString();

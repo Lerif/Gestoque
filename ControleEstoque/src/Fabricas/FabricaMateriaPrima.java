@@ -12,7 +12,7 @@ public class FabricaMateriaPrima extends AbstrataFabrica<FabricaMateriaPrima> {
 		return new FabricaMateriaPrima();
 	}
 
-	public MateriaPrima nova(NomeMateriaPrima nomeMateriaPrima) {
-		return MateriaPrima.nova(nomeMateriaPrima);
+	public MateriaPrima nova(NomeMateriaPrima nomeMateriaPrima,int quantidadeMateriaPrima) {
+		return MateriaPrima.nova(nomeMateriaPrima,quantidadeMateriaPrima);
 	}
 }

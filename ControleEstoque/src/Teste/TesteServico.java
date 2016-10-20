@@ -9,7 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Entidades.Produto;
-import Repositorios.RepositorioProduto;
+import Repositorios.RepositorioEstoqueProduto;
 import Servicos.ServicoProduto;
 
 public class TesteServico {

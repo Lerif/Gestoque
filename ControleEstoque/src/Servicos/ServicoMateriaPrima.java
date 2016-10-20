@@ -5,18 +5,18 @@ import java.util.List;
 import Entidades.MateriaPrima;
 import Enumeradores.NomeMateriaPrima;
 import Fabricas.FabricaMateriaPrima;
-import Repositorios.RespositorioMateriaPrima;
+import Repositorios.RespositorioEstoqueMateriaPrima;
 
 public class ServicoMateriaPrima {
 
-	private RespositorioMateriaPrima repositorioDeEstoqueMateriaPrima;
+	private RespositorioEstoqueMateriaPrima repositorioDeEstoqueMateriaPrima;
 	
 	public ServicoMateriaPrima() {
-		repositorioDeEstoqueMateriaPrima = new RespositorioMateriaPrima();
+		repositorioDeEstoqueMateriaPrima = new RespositorioEstoqueMateriaPrima();
 	}
 
-	public MateriaPrima solicitarCriacaoMateriaPrima(NomeMateriaPrima nomeMateriaPrima) {
-		MateriaPrima nova = FabricaMateriaPrima.nova().nova(nomeMateriaPrima);
+	public MateriaPrima solicitarCriacaoMateriaPrima(NomeMateriaPrima nomeMateriaPrima, int quantidade) {
+		MateriaPrima nova = FabricaMateriaPrima.nova().nova(nomeMateriaPrima, quantidade);
 		repositorioDeEstoqueMateriaPrima.insert(nova);
 		return nova;
 	}

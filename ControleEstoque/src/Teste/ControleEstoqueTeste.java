@@ -10,8 +10,8 @@ import Enumeradores.NomeMateriaPrima;
 import Enumeradores.TipoProduto;
 import Interface.InterfaceMenuGeral;
 import Repositorios.RepositorioCliente;
-import Repositorios.RepositorioProduto;
-import Repositorios.RespositorioMateriaPrima;
+import Repositorios.RepositorioEstoqueProduto;
+import Repositorios.RespositorioEstoqueMateriaPrima;
 import Servicos.ServicoCliente;
 import Servicos.ServicoFornecedor;
 import Servicos.ServicoMateriaPrima;
@@ -43,8 +43,8 @@ public class ControleEstoqueTeste {
 		ServicoMateriaPrima servicoMateriaPrima = new ServicoMateriaPrima();
 
 		System.out.println("\nTESTE CRIA��O DE MATERIA PRIMA:");
-		MateriaPrima parafuso = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.ARR);
-		System.out.println("Materia Prima: " + parafuso.getNomeMateriaPrima().getNome());
+		MateriaPrima parafuso = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.ARR,10);
+		System.out.println("Materia Prima: " + parafuso.getNomeMateriaPrima().getNome() +"e"+ 10 );
 	}
 
 	private static void testaCriacaoFornecedor() {
@@ -52,8 +52,8 @@ public class ControleEstoqueTeste {
 		ServicoFornecedor servicoFornecedor = new ServicoFornecedor();
 		ServicoMateriaPrima servicoMateriaPrima = new ServicoMateriaPrima();
 
-		MateriaPrima parafuso = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PAR);
-		MateriaPrima prego = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PRC);
+		MateriaPrima parafuso = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PAR,5);
+		MateriaPrima prego = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PRC,4);
 		ArrayList<MateriaPrima> listMateriaPrima = new ArrayList<MateriaPrima>();
 		listMateriaPrima.add(parafuso);
 		listMateriaPrima.add(prego);
@@ -78,7 +78,7 @@ public class ControleEstoqueTeste {
 	private static void testarEstoqueProduto() {
 		System.out.println("\nTESTE INSERT EM ESTOQUE DE PRODUTO:");
 		ServicoProduto servicoProduto = ServicoProduto.novo();
-		RepositorioProduto repositorioEstoqueProduto = new RepositorioProduto();
+		RepositorioEstoqueProduto repositorioEstoqueProduto = new RepositorioEstoqueProduto();
 		for (int i = 1; i <= 10; i++) {
 			Produto produto = servicoProduto.solicitarCriacaoProduto("1020", "Reboque Redondo");
 			repositorioEstoqueProduto.insert(produto);
@@ -96,7 +96,7 @@ public class ControleEstoqueTeste {
 
 	private static void testarSelectEstoqueProduto() {
 		System.out.println("TESTE SELECT EM ESTOQUE DE PRODUTO:");
-		RepositorioProduto repositorioEstoqueProduto = new RepositorioProduto();
+		RepositorioEstoqueProduto repositorioEstoqueProduto = new RepositorioEstoqueProduto();
 		ServicoProduto servicoProduto = ServicoProduto.novo();
 		ArrayList<Produto> retornoSelect = new ArrayList<Produto>();
 		Produto produto = null;
@@ -129,14 +129,14 @@ public class ControleEstoqueTeste {
 
 		ServicoMateriaPrima servicoMateriaPrima = new ServicoMateriaPrima();
 
-		MateriaPrima mp1 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.ARR);
-		MateriaPrima mp2 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CAL);
-		MateriaPrima mp3 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CPA);
-		MateriaPrima mp4 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PAR);
-		MateriaPrima mp5 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PRC);
+		MateriaPrima mp1 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.ARR,4);
+		MateriaPrima mp2 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CAL,3);
+		MateriaPrima mp3 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CPA,2);
+		MateriaPrima mp4 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PAR,1);
+		MateriaPrima mp5 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PRC,0);
 
 		// teste de insert
-		RespositorioMateriaPrima repositorioEstoqueMateriaPrima = new RespositorioMateriaPrima();
+		RespositorioEstoqueMateriaPrima repositorioEstoqueMateriaPrima = new RespositorioEstoqueMateriaPrima();
 		repositorioEstoqueMateriaPrima.insert(mp1);
 		repositorioEstoqueMateriaPrima.insert(mp2);
 		repositorioEstoqueMateriaPrima.insert(mp3);
@@ -150,7 +150,7 @@ public class ControleEstoqueTeste {
 		}
 
 		// teste find
-		MateriaPrima materiaPrima = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CAL);
+		MateriaPrima materiaPrima = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CAL,3);
 		repositorioEstoqueMateriaPrima.insert(materiaPrima);
 		System.out.println(repositorioEstoqueMateriaPrima.find(materiaPrima).getNomeMateriaPrima().getNome());
 

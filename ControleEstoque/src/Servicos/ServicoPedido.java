@@ -34,6 +34,7 @@ public class ServicoPedido {
 	}
 	
 	public List<Pedido> buscarTodos() {
+		
 		return repositorioPedido.findAll();
 	}
 	
