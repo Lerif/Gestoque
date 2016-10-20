@@ -13,7 +13,7 @@ import Agregadores.AgregadorProdutoMateriaPrima;
 import Entidades.MateriaPrima;
 import Entidades.Produto;
 import Enumeradores.NomeMateriaPrima;
-import Repositorios.RepositorioProduto;
+import Repositorios.RepositorioEstoqueProduto;
 import Servicos.ServicoProdutoMateriaPrima;
 import Servicos.ServicoMateriaPrima;
 import Servicos.ServicoProduto;
@@ -25,9 +25,9 @@ public class TesteAgregador {
 		
 		ServicoMateriaPrima servicoMateriaPrima = new ServicoMateriaPrima();
 		
-		MateriaPrima materiaPrima1 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.ARR);
-		MateriaPrima materiaPrima2 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CAL);
-		MateriaPrima materiaPrima3 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CPA);
+		//MateriaPrima materiaPrima1 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.ARR);
+		//MateriaPrima materiaPrima2 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CAL);
+		//MateriaPrima materiaPrima3 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.CPA);
 		
 		List<MateriaPrima> buscarTodos = servicoMateriaPrima.buscarTodos();
 		

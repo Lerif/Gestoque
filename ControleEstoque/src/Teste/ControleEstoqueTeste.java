@@ -1,7 +1,6 @@
 package Teste;
 
 import java.util.ArrayList;
-
 import Entidades.Cliente;
 import Entidades.Fornecedor;
 import Entidades.MateriaPrima;
@@ -24,13 +23,13 @@ public class ControleEstoqueTeste {
 
 	public static void main(String[] args) {
 
-		testarEstoqueMateriaPrima();
+		//testarEstoqueMateriaPrima();
 
 		 InterfaceMenuGeral intefaceDeMenu = new InterfaceMenuGeral();
 		 InterfaceMenuGeral.main(args);
 	}
 
-	private static Cliente testaCriacaoCliente() {
+	/*private static Cliente testaCriacaoCliente() {
 		System.out.println("TESTE CRIACAO DE CLIENTE:");
 		ServicoCliente servicoCliente = new ServicoCliente();
 		Cliente clienteTeste = servicoCliente.solicitarCriacaoCliente("ERNESTO", "1234");
@@ -154,6 +153,6 @@ public class ControleEstoqueTeste {
 		repositorioEstoqueMateriaPrima.insert(materiaPrima);
 		System.out.println(repositorioEstoqueMateriaPrima.find(materiaPrima).getNomeMateriaPrima().getNome());
 
-	}
+	}*/
 
 }

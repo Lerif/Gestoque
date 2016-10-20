@@ -311,7 +311,18 @@ public class InterfaceMenuGeral extends JFrame {
 		final JTextField nomeDoProduto = new JTextField();
 		JButton botaoCadastrar = new JButton("Cadastrar");
 		JButton botaoCancelar = new JButton("Cancelar");
-
+		
+		JTextField textParafuso  = new JTextField();
+		JTextField textPorca  = new JTextField();
+		JTextField textArruela  = new JTextField();
+		JTextField textAco  = new JTextField();
+		JTextField textAluminio  = new JTextField();
+		textParafuso.setPreferredSize(new Dimension(15,15));
+		textPorca.setPreferredSize(new Dimension(15,15));
+		textArruela.setPreferredSize(new Dimension(15,15));
+		textAco.setPreferredSize(new Dimension(15,15));
+		textAluminio.setPreferredSize(new Dimension(15,15));
+		
 		JCheckBox jcbParafuso = new JCheckBox("Parafuso");
 		JCheckBox jcbPorca = new JCheckBox("Porca");
 		JCheckBox jcbArruela = new JCheckBox("Arruela");
@@ -341,22 +352,29 @@ public class InterfaceMenuGeral extends JFrame {
 		jcbParafuso.setHorizontalAlignment(0);
 		jcbParafuso.setPreferredSize(new Dimension(100, 50));
 		panel.add(jcbParafuso);
+		panel.add(textParafuso);
+		
 
 		jcbPorca.setHorizontalAlignment(0);
 		jcbPorca.setPreferredSize(new Dimension(100, 50));
 		panel.add(jcbPorca);
-
+		panel.add(textPorca);
+		
 		jcbArruela.setHorizontalAlignment(0);
 		jcbArruela.setPreferredSize(new Dimension(100, 50));
 		panel.add(jcbArruela);
+		panel.add(textArruela);
 
+		
 		jcbAco.setHorizontalAlignment(0);
 		jcbAco.setPreferredSize(new Dimension(100, 50));
 		panel.add(jcbAco);
+		panel.add(textAco);
 
 		jcbAluminio.setHorizontalAlignment(0);
 		jcbAluminio.setPreferredSize(new Dimension(100, 50));
 		panel.add(jcbAluminio);
+		panel.add(textAluminio);
 
 		botaoCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -364,19 +382,24 @@ public class InterfaceMenuGeral extends JFrame {
 				List<MateriaPrima> materiasPrimas = new ArrayList<MateriaPrima>();
 
 				if (jcbParafuso.isSelected() == true) {
-					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.PAR));
+					int quantidadeParafuso;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.PAR, quantidadeParafuso = Integer.parseInt(textParafuso.getText())));
 				}
 				if (jcbPorca.isSelected() == true) {
-					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.PRC));
+					int quantidadePorca;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.PRC, quantidadePorca = Integer.parseInt(textPorca.getText())));
 				}
 				if (jcbArruela.isSelected() == true) {
-					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.ARR));
+					int quantidadeArruela;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.ARR, quantidadeArruela = Integer.parseInt(textArruela.getText())));
 				}
 				if (jcbAco.isSelected() == true) {
-					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.CPA));
+					int quantidadeChapaAco;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.CPA,quantidadeChapaAco = Integer.parseInt(textAco.getText())));
 				}
 				if (jcbAluminio.isSelected() == true) {
-					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.CAL));
+					int quantidadeChapaAluminio;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.CAL,quantidadeChapaAluminio = Integer.parseInt(textAluminio.getText())));
 				}
 
 				AgregadorProdutoMateriaPrima agregadorProdutoMateriaPrima = servicoFachada.associarProdutoMateriaPrima(
@@ -392,6 +415,12 @@ public class InterfaceMenuGeral extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				idDoProduto.setText("");
 				nomeDoProduto.setText("");
+				textParafuso.setText("");
+				textPorca.setText("");
+				textAco.setText("");
+				textAluminio.setText("");
+				textArruela.setText("");
+				
 			}
 		});
 	}
