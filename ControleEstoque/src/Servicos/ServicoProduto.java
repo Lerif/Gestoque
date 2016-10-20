@@ -1,14 +1,15 @@
 package Servicos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Entidades.Produto;
 import Fabricas.FabricaProduto;
-import Repositorios.RepositorioEstoqueProduto;
+import Repositorios.RepositorioProduto;
 
 public class ServicoProduto {
 	
-	public RepositorioEstoqueProduto repositorioProduto = new RepositorioEstoqueProduto();
+	public RepositorioProduto repositorioProduto = new RepositorioProduto();
 	
 	public ServicoProduto() {
 		// TODO Auto-generated constructor stub
@@ -33,6 +34,17 @@ public class ServicoProduto {
 	public List<Produto> buscarTodos() {
 		// TODO Auto-generated method stub
 		return repositorioProduto.findAll();
+	}
+	
+	public Object[] arrayStringFromProdutos(){
+		
+		List<String> stringProdutos = new ArrayList<>();
+		
+		for (Produto produto : this.buscarTodos()) {
+			stringProdutos.add(produto.toString());
+		}
+		
+		return (Object[]) stringProdutos.toArray();
 	}
 	
 }

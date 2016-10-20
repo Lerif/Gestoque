@@ -15,8 +15,8 @@ public class ServicoMateriaPrima {
 		repositorioDeEstoqueMateriaPrima = new RespositorioEstoqueMateriaPrima();
 	}
 
-	public MateriaPrima solicitarCriacaoMateriaPrima(NomeMateriaPrima nomeMateriaPrima) {
-		MateriaPrima nova = FabricaMateriaPrima.nova().nova(nomeMateriaPrima);
+	public MateriaPrima solicitarCriacaoMateriaPrima(NomeMateriaPrima nomeMateriaPrima, int quantidade) {
+		MateriaPrima nova = FabricaMateriaPrima.nova().nova(nomeMateriaPrima, quantidade);
 		repositorioDeEstoqueMateriaPrima.insert(nova);
 		return nova;
 	}

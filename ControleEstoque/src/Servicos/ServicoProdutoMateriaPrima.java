@@ -32,6 +32,11 @@ public class ServicoProdutoMateriaPrima {
 		// TODO Auto-generated method stub
 		return repositorioProdutoMateriaPrima.findAll();
 	}
+
+	public AgregadorProdutoMateriaPrima buscarAgregadorPorCodigoDeProduto(String codigoProduto) {
+		return repositorioProdutoMateriaPrima.findByCodigoProduto(codigoProduto);
+		
+	}
 	
 
 }

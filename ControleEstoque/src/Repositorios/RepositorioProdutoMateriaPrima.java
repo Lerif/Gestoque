@@ -35,6 +35,16 @@ public class RepositorioProdutoMateriaPrima implements RepositorioGenerico<Agreg
 	public List<AgregadorProdutoMateriaPrima> findAll() {
 		return estoqueMateriaPrima;
 	}
+
+	public AgregadorProdutoMateriaPrima findByCodigoProduto(String codigoProduto) {
+		
+		for(AgregadorProdutoMateriaPrima agregador : estoqueMateriaPrima){
+			if(agregador.produto().getCodigo().equals(codigoProduto)){
+				return agregador;
+			}
+		}
+		return null;
+	}
 	
 	
 }
