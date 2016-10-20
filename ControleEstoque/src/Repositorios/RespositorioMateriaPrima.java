@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import Entidades.MateriaPrima;
 
-public class RespositorioEstoqueMateriaPrima implements RepositorioGenerico<MateriaPrima> {
+public class RespositorioMateriaPrima implements RepositorioGenerico<MateriaPrima> {
 
 	ArrayList<MateriaPrima> estoqueMateriaPrima = new ArrayList<MateriaPrima>();
 
-	public RespositorioEstoqueMateriaPrima() {
+	public RespositorioMateriaPrima() {
 	}
 
 	public void insert(MateriaPrima materiaPrima) {

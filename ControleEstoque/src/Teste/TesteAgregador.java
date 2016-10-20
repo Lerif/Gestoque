@@ -13,7 +13,7 @@ import Agregadores.AgregadorProdutoMateriaPrima;
 import Entidades.MateriaPrima;
 import Entidades.Produto;
 import Enumeradores.NomeMateriaPrima;
-import Repositorios.RepositorioEstoqueProduto;
+import Repositorios.RepositorioProduto;
 import Servicos.ServicoProdutoMateriaPrima;
 import Servicos.ServicoMateriaPrima;
 import Servicos.ServicoProduto;

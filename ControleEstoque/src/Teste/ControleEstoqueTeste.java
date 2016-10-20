@@ -10,8 +10,8 @@ import Enumeradores.NomeMateriaPrima;
 import Enumeradores.TipoProduto;
 import Interface.InterfaceMenuGeral;
 import Repositorios.RepositorioCliente;
-import Repositorios.RepositorioEstoqueProduto;
-import Repositorios.RespositorioEstoqueMateriaPrima;
+import Repositorios.RepositorioProduto;
+import Repositorios.RespositorioMateriaPrima;
 import Servicos.ServicoCliente;
 import Servicos.ServicoFornecedor;
 import Servicos.ServicoMateriaPrima;
@@ -78,7 +78,7 @@ public class ControleEstoqueTeste {
 	private static void testarEstoqueProduto() {
 		System.out.println("\nTESTE INSERT EM ESTOQUE DE PRODUTO:");
 		ServicoProduto servicoProduto = ServicoProduto.novo();
-		RepositorioEstoqueProduto repositorioEstoqueProduto = new RepositorioEstoqueProduto();
+		RepositorioProduto repositorioEstoqueProduto = new RepositorioProduto();
 		for (int i = 1; i <= 10; i++) {
 			Produto produto = servicoProduto.solicitarCriacaoProduto("1020", "Reboque Redondo");
 			repositorioEstoqueProduto.insert(produto);
@@ -96,7 +96,7 @@ public class ControleEstoqueTeste {
 
 	private static void testarSelectEstoqueProduto() {
 		System.out.println("TESTE SELECT EM ESTOQUE DE PRODUTO:");
-		RepositorioEstoqueProduto repositorioEstoqueProduto = new RepositorioEstoqueProduto();
+		RepositorioProduto repositorioEstoqueProduto = new RepositorioProduto();
 		ServicoProduto servicoProduto = ServicoProduto.novo();
 		ArrayList<Produto> retornoSelect = new ArrayList<Produto>();
 		Produto produto = null;
@@ -136,7 +136,7 @@ public class ControleEstoqueTeste {
 		MateriaPrima mp5 = servicoMateriaPrima.solicitarCriacaoMateriaPrima(NomeMateriaPrima.PRC);
 
 		// teste de insert
-		RespositorioEstoqueMateriaPrima repositorioEstoqueMateriaPrima = new RespositorioEstoqueMateriaPrima();
+		RespositorioMateriaPrima repositorioEstoqueMateriaPrima = new RespositorioMateriaPrima();
 		repositorioEstoqueMateriaPrima.insert(mp1);
 		repositorioEstoqueMateriaPrima.insert(mp2);
 		repositorioEstoqueMateriaPrima.insert(mp3);

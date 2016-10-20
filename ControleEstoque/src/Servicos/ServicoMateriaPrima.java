@@ -5,14 +5,14 @@ import java.util.List;
 import Entidades.MateriaPrima;
 import Enumeradores.NomeMateriaPrima;
 import Fabricas.FabricaMateriaPrima;
-import Repositorios.RespositorioEstoqueMateriaPrima;
+import Repositorios.RespositorioMateriaPrima;
 
 public class ServicoMateriaPrima {
 
-	private RespositorioEstoqueMateriaPrima repositorioDeEstoqueMateriaPrima;
+	private RespositorioMateriaPrima repositorioDeEstoqueMateriaPrima;
 	
 	public ServicoMateriaPrima() {
-		repositorioDeEstoqueMateriaPrima = new RespositorioEstoqueMateriaPrima();
+		repositorioDeEstoqueMateriaPrima = new RespositorioMateriaPrima();
 	}
 
 	public MateriaPrima solicitarCriacaoMateriaPrima(NomeMateriaPrima nomeMateriaPrima) {

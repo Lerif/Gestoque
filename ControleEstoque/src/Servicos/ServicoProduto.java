@@ -4,11 +4,11 @@ import java.util.List;
 
 import Entidades.Produto;
 import Fabricas.FabricaProduto;
-import Repositorios.RepositorioEstoqueProduto;
+import Repositorios.RepositorioProduto;
 
 public class ServicoProduto {
 	
-	public RepositorioEstoqueProduto repositorioProduto = new RepositorioEstoqueProduto();
+	public RepositorioProduto repositorioProduto = new RepositorioProduto();
 	
 	public ServicoProduto() {
 		// TODO Auto-generated constructor stub
