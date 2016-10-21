@@ -31,8 +31,7 @@ public class InterfaceMenuGeral extends JFrame {
 	static InterfaceCadastroDoProduto interfaceCadastroDoProduto = new InterfaceCadastroDoProduto(servicoFachada);
 
 	public InterfaceMenuGeral() {
-
-		initUI();
+			initUI();
 	}
 
 	public void iniciarInterface() {
@@ -46,6 +45,7 @@ public class InterfaceMenuGeral extends JFrame {
 		setTitle("Gestoque");
 		setSize(300, 300);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
@@ -166,13 +166,13 @@ public class InterfaceMenuGeral extends JFrame {
 
 		JMenu SairMenu = new JMenu("Sair");
 		SairMenu.addActionListener((ActionEvent event) -> {
-			// this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+			System.exit(0);
 		});
 
 		FuncionalidadeMenu.add(FabricaMenu);
 		FuncionalidadeMenu.add(AlmoxarifadoMenu);
 		FuncionalidadeMenu.add(AdministrativoMenu);
-		FuncionalidadeMenu.add(SairMenu);
+		//FuncionalidadeMenu.add(SairMenu);
 
 		menubar.add(CadastroMenu);
 		menubar.add(FuncionalidadeMenu);
@@ -192,15 +192,16 @@ public class InterfaceMenuGeral extends JFrame {
 		JLabel labelProduto = new JLabel("Produto");
 		JButton botaoConcluir = new JButton("Concluir OS");
 		JButton botaoBuscarItens = new JButton("Buscar itens OS");
-		JButton botaoCancelar = new JButton("Cancelar");
+		JButton botaoLimpar = new JButton("Limpar");
 		JTextField textCodigo = new JTextField();
 		JTextField textQuantidade = new JTextField();
 		JTextField textProduto = new JTextField();
-
+		
 		JList list = new JList(servicoFachada.buscarArrayDeOrdemDeServicoToString());
 		list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JScrollPane scrollableList = new JScrollPane(list);
+		setResizable(false);
 
 		panel.add(scrollableList);
 
@@ -229,7 +230,7 @@ public class InterfaceMenuGeral extends JFrame {
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
-		panel.add(botaoCancelar);
+		panel.add(botaoLimpar);
 		frame.setSize(500, 200);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
@@ -282,6 +283,7 @@ public class InterfaceMenuGeral extends JFrame {
 		frame.setSize(500, 200);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
+		setResizable(false);
 
 		// panel.add(botaoBuscarProduto);
 		frame.setSize(500, 200);
@@ -341,7 +343,7 @@ public class InterfaceMenuGeral extends JFrame {
 		final JTextField NomeCliente = new JTextField();
 		final JTextField CPFCliente = new JTextField();
 		JButton botaoCadastrar = new JButton("Cadastrar");
-		JButton botaoCancelar = new JButton("Cancelar");
+		JButton botaoLimpar = new JButton("Limpar");
 
 		labelId.setHorizontalAlignment(0);
 		panel.add(labelId);
@@ -358,7 +360,7 @@ public class InterfaceMenuGeral extends JFrame {
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
-		panel.add(botaoCancelar);
+		panel.add(botaoLimpar);
 		frame.setSize(300, 100);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
@@ -371,7 +373,7 @@ public class InterfaceMenuGeral extends JFrame {
 			}
 		});
 
-		botaoCancelar.addActionListener(new ActionListener() {
+		botaoLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NomeCliente.setText("");
 				CPFCliente.setText("");
@@ -395,7 +397,7 @@ public class InterfaceMenuGeral extends JFrame {
 		final JTextField CodigoDoProduto = new JTextField();
 		final JTextField QuantidadeDoProduto = new JTextField();
 		JButton botaoCadastrar = new JButton("Cadastrar");
-		JButton botaoCancelar = new JButton("Cancelar");
+		JButton botaoLimpar = new JButton("Limpar");
 
 		labelId.setHorizontalAlignment(0);
 		panel.add(labelId);
@@ -422,7 +424,7 @@ public class InterfaceMenuGeral extends JFrame {
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
-		panel.add(botaoCancelar);
+		panel.add(botaoLimpar);
 		frame.setSize(300, 300);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
@@ -437,7 +439,7 @@ public class InterfaceMenuGeral extends JFrame {
 			}
 		});
 
-		botaoCancelar.addActionListener(new ActionListener() {
+		botaoLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				idDoPedido.setText("");
 				NomeDoProduto.setText("");
@@ -458,7 +460,7 @@ public class InterfaceMenuGeral extends JFrame {
 		final JTextField idDoProduto = new JTextField();
 		final JTextField nomeDoProduto = new JTextField();
 		JButton botaoCadastrar = new JButton("Cadastrar");
-		JButton botaoCancelar = new JButton("Cancelar");
+		JButton botaoLimpar = new JButton("Limpar");
 
 		JTextField textParafuso = new JTextField();
 		JTextField textPorca = new JTextField();
@@ -492,7 +494,7 @@ public class InterfaceMenuGeral extends JFrame {
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
-		panel.add(botaoCancelar);
+		panel.add(botaoLimpar);
 		frame.setSize(500, 350);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
@@ -561,7 +563,7 @@ public class InterfaceMenuGeral extends JFrame {
 			}
 		});
 
-		botaoCancelar.addActionListener(new ActionListener() {
+		botaoLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				idDoProduto.setText("");
 				nomeDoProduto.setText("");
@@ -585,7 +587,7 @@ public class InterfaceMenuGeral extends JFrame {
 		final JTextField TipoMatPrima = new JTextField();
 		final JTextField Quantidade = new JTextField();
 		JButton botaoCadastrar = new JButton("Cadastrar");
-		JButton botaoCancelar = new JButton("Cancelar");
+		JButton botaoLimpar = new JButton("Limpar");
 
 		labelId.setHorizontalAlignment(0);
 		panel.add(labelId);
@@ -602,7 +604,7 @@ public class InterfaceMenuGeral extends JFrame {
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
-		panel.add(botaoCancelar);
+		panel.add(botaoLimpar);
 		frame.setSize(350, 100);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
@@ -614,7 +616,7 @@ public class InterfaceMenuGeral extends JFrame {
 			}
 		});
 
-		botaoCancelar.addActionListener(new ActionListener() {
+		botaoLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TipoMatPrima.setText("");
 				Quantidade.setText("");
@@ -633,7 +635,7 @@ public class InterfaceMenuGeral extends JFrame {
 		final JTextField NomeCliente = new JTextField();
 		final JTextField CPFCliente = new JTextField();
 		JButton botaoCadastrar = new JButton("Cadastrar");
-		JButton botaoCancelar = new JButton("Cancelar");
+		JButton botaoLimpar = new JButton("Limpar");
 
 		labelId.setHorizontalAlignment(0);
 		panel.add(labelId);
@@ -650,7 +652,7 @@ public class InterfaceMenuGeral extends JFrame {
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
-		panel.add(botaoCancelar);
+		panel.add(botaoLimpar);
 		frame.setSize(300, 100);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
@@ -662,7 +664,7 @@ public class InterfaceMenuGeral extends JFrame {
 			}
 		});
 
-		botaoCancelar.addActionListener(new ActionListener() {
+		botaoLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				NomeCliente.setText("");
 				CPFCliente.setText("");
