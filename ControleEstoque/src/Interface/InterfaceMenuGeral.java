@@ -1,17 +1,13 @@
 package Interface;
 
-import java.awt.Component;
 import java.awt.Dimension;
-
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -23,17 +19,16 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
-
 import Agregadores.AgregadorProdutoMateriaPrima;
 import javax.swing.JCheckBox;
 import Entidades.MateriaPrima;
-import Entidades.Produto;
 import Enumeradores.NomeMateriaPrima;
 import Servicos.ServicoFachada;
 
 public class InterfaceMenuGeral extends JFrame {
 
 	static ServicoFachada servicoFachada = new ServicoFachada();
+	static InterfaceCadastroDoProduto interfaceCadastroDoProduto = new InterfaceCadastroDoProduto(servicoFachada);
 
 	public InterfaceMenuGeral() {
 
@@ -82,7 +77,8 @@ public class InterfaceMenuGeral extends JFrame {
 		JMenuItem CadastroProduto = new JMenuItem("Cadastrar Produto");
 
 		CadastroProduto.addActionListener((ActionEvent event) -> {
-			interfaceCadastroProduto();
+			//interfaceCadastroProduto();
+			interfaceCadastroDoProduto.criarInterfaceDoProduto();
 		});
 
 		JMenuItem CadastroPedido = new JMenuItem("Cadastrar Pedido");
@@ -452,7 +448,7 @@ public class InterfaceMenuGeral extends JFrame {
 	}
 
 	// criar interface cadastro produto;
-	public static void interfaceCadastroProduto() {
+	/*public static void interfaceCadastroProduto() {
 
 		JFrame frame = new JFrame("Gestoque - Cadastro de Produtos");
 		frame.setLocationRelativeTo(null);
@@ -469,11 +465,11 @@ public class InterfaceMenuGeral extends JFrame {
 		JTextField textArruela = new JTextField();
 		JTextField textAco = new JTextField();
 		JTextField textAluminio = new JTextField();
-		textParafuso.setPreferredSize(new Dimension(15, 15));
-		textPorca.setPreferredSize(new Dimension(15, 15));
-		textArruela.setPreferredSize(new Dimension(15, 15));
-		textAco.setPreferredSize(new Dimension(15, 15));
-		textAluminio.setPreferredSize(new Dimension(15, 15));
+		textParafuso.setPreferredSize(new Dimension(20, 20));
+		textPorca.setPreferredSize(new Dimension(20, 20));
+		textArruela.setPreferredSize(new Dimension(20, 20));
+		textAco.setPreferredSize(new Dimension(20, 20));
+		textAluminio.setPreferredSize(new Dimension(20, 20));
 
 		JCheckBox jcbParafuso = new JCheckBox("Parafuso");
 		JCheckBox jcbPorca = new JCheckBox("Porca");
@@ -497,32 +493,32 @@ public class InterfaceMenuGeral extends JFrame {
 		frame.setVisible(true);
 
 		panel.add(botaoCancelar);
-		frame.setSize(300, 300);
+		frame.setSize(500, 350);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
-
+		
 		jcbParafuso.setHorizontalAlignment(0);
-		jcbParafuso.setPreferredSize(new Dimension(100, 50));
+		jcbParafuso.setPreferredSize(new Dimension(100, 20));
 		panel.add(jcbParafuso);
 		panel.add(textParafuso);
 
 		jcbPorca.setHorizontalAlignment(0);
-		jcbPorca.setPreferredSize(new Dimension(100, 50));
+		jcbPorca.setPreferredSize(new Dimension(100, 20));
 		panel.add(jcbPorca);
 		panel.add(textPorca);
 
 		jcbArruela.setHorizontalAlignment(0);
-		jcbArruela.setPreferredSize(new Dimension(100, 50));
+		jcbArruela.setPreferredSize(new Dimension(100, 20));
 		panel.add(jcbArruela);
 		panel.add(textArruela);
 
 		jcbAco.setHorizontalAlignment(0);
-		jcbAco.setPreferredSize(new Dimension(100, 50));
+		jcbAco.setPreferredSize(new Dimension(150, 20));
 		panel.add(jcbAco);
 		panel.add(textAco);
 
 		jcbAluminio.setHorizontalAlignment(0);
-		jcbAluminio.setPreferredSize(new Dimension(100, 50));
+		jcbAluminio.setPreferredSize(new Dimension(200, 20));
 		panel.add(jcbAluminio);
 		panel.add(textAluminio);
 
@@ -561,7 +557,6 @@ public class InterfaceMenuGeral extends JFrame {
 						servicoFachada.cadastrarProduto(idDoProduto.getText(), nomeDoProduto.getText()),
 						materiasPrimas);
 
-				// System.out.println(agregadorProdutoMateriaPrima.toString());
 				JOptionPane.showMessageDialog(frame, agregadorProdutoMateriaPrima.toString());
 			}
 		});
@@ -578,7 +573,7 @@ public class InterfaceMenuGeral extends JFrame {
 
 			}
 		});
-	}
+	}*/
 
 	// criar interface materia prima
 	public static void interfaceCadastroMatPrima() {
