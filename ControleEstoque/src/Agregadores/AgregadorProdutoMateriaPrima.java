@@ -8,7 +8,6 @@ import Entidades.Produto;
 public class AgregadorProdutoMateriaPrima {
 
 	private List<MateriaPrima> materiaPrima;
-	private MateriaPrima materiaPrima1;
 	private Produto produto;
 
 	private AgregadorProdutoMateriaPrima(List<MateriaPrima> materiaPrima, Produto produto) {

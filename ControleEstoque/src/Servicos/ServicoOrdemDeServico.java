@@ -5,7 +5,6 @@ import java.util.List;
 
 import Agregadores.AgregadorProdutoMateriaPrima;
 import Entidades.OrdemDeServico;
-import Entidades.Produto;
 import Fabricas.FabricaOrdemDeServico;
 import Repositorios.RepositorioOrdemDeServico;
 

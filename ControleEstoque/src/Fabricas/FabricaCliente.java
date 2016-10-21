@@ -12,7 +12,7 @@ public class FabricaCliente extends AbstrataFabrica<FabricaCliente> {
 		return new FabricaCliente();
 	}
 
-	public Cliente criarCliente(String nome, String cnpj) {
+	public Cliente novo(String nome, String cnpj) {
 		return Cliente.novo(nome, cnpj);
 	}
 }

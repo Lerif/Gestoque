@@ -5,7 +5,7 @@ public class Cliente {
 	private String nome;
 	private String cnpj;
 	
-	public Cliente(String nome,String cnpj) {
+	private Cliente(String nome,String cnpj) {
       this.setNome(nome);
       this.setCnpj(cnpj);		
 	}

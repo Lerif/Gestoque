@@ -1,6 +1,5 @@
 package Interface;
 
-import java.awt.Component;
 import java.awt.Dimension;
 
 import java.awt.EventQueue;
@@ -26,6 +25,8 @@ import javax.swing.ListSelectionModel;
 
 import Agregadores.AgregadorProdutoMateriaPrima;
 import javax.swing.JCheckBox;
+
+import Entidades.Cliente;
 import Entidades.MateriaPrima;
 import Entidades.Produto;
 import Enumeradores.NomeMateriaPrima;
@@ -341,7 +342,7 @@ public class InterfaceMenuGeral extends JFrame {
 		frame.setLocationRelativeTo(null);
 		JPanel panel = new JPanel();
 		JLabel labelId = new JLabel("Nome");
-		JLabel labelNome = new JLabel("CPF");
+		JLabel labelNome = new JLabel("CPF ");
 		final JTextField NomeCliente = new JTextField();
 		final JTextField CPFCliente = new JTextField();
 		JButton botaoCadastrar = new JButton("Cadastrar");
@@ -369,14 +370,16 @@ public class InterfaceMenuGeral extends JFrame {
 
 		botaoCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				// System.out.println("Codigo: " + produto.getCodigo());
-				// System.out.println("Tipo do produto: " + produto.getNome());
+				List <Cliente> clientes = new ArrayList<>();
+				clientes.add(Cliente.novo(NomeCliente.getText(), CPFCliente.getText()));
+				
+				
 			}
 		});
 
 		botaoCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				NomeCliente.setText("");
 				CPFCliente.setText("");
 

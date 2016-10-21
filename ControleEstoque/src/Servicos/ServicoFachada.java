@@ -27,10 +27,22 @@ public class ServicoFachada {
 		return servico.solicitarCriacaoPedido(codigo, produto, quantidade);
 	}
 
-	public Cliente cadastarCliente(String nome, String cnpj) {
+	/*public Cliente cadastarCliente(String nome, String cnpj) {
 		ServicoCliente servicoCliente = new ServicoCliente();
 		return servicoCliente.solicitarCriacaoCliente(nome, cnpj);
+	}*/
+	
+	public Cliente cadastrarCliente(String nome, String cnpj){
+		ServicoCliente cliente = new ServicoCliente();
+		return cliente.solicitarCriacaoCliente(nome, cnpj);
 	}
+	
+	public List<Cliente> buscarListaClientes(){
+		
+		ServicoCliente servicoCliente = new ServicoCliente();
+		return servicoCliente.buscarTodos();
+	}
+
 
 	public AgregadorProdutoMateriaPrima associarProdutoMateriaPrima(Produto produto,
 			List<MateriaPrima> materiasPrimas) {

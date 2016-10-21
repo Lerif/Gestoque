@@ -1,15 +1,30 @@
 package Servicos;
 
+import java.util.List;
+
 import Entidades.Cliente;
 import Fabricas.FabricaCliente;
+import Repositorios.RepositorioCliente;
 
 public class ServicoCliente {
-
-	public ServicoCliente() {
-		// TODO Auto-generated constructor stub
+	
+	public ServicoCliente(){}
+	
+	public static ServicoCliente novo(){
+		return new ServicoCliente();
 	}
+	
+	public RepositorioCliente repositorioCliente = new RepositorioCliente();
+
+	
 
 	public Cliente solicitarCriacaoCliente(String nome, String cnpj){
-		return FabricaCliente.nova().criarCliente(nome, cnpj);
+		Cliente cliente = FabricaCliente.nova().novo(nome, cnpj);
+		repositorioCliente.insert(cliente);
+		return cliente;
+	}
+	
+	public List<Cliente> buscarTodos(){
+		return repositorioCliente.findAll();
 	}
 }
