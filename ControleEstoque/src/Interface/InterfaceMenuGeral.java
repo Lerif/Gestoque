@@ -4,33 +4,38 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
-
-import Entidades.Produto;
+import javax.swing.ListSelectionModel;
+import Agregadores.AgregadorProdutoMateriaPrima;
+import javax.swing.JCheckBox;
+import Entidades.MateriaPrima;
+import Enumeradores.NomeMateriaPrima;
 import Servicos.ServicoFachada;
 
 public class InterfaceMenuGeral extends JFrame {
 
 	static ServicoFachada servicoFachada = new ServicoFachada();
+	static InterfaceCadastroDoProduto interfaceCadastroDoProduto = new InterfaceCadastroDoProduto(servicoFachada);
 
 	public InterfaceMenuGeral() {
 
 		initUI();
 	}
-	
-	public void iniciarInterface(){
+
+	public void iniciarInterface() {
 		initUI();
 	}
 
@@ -72,7 +77,8 @@ public class InterfaceMenuGeral extends JFrame {
 		JMenuItem CadastroProduto = new JMenuItem("Cadastrar Produto");
 
 		CadastroProduto.addActionListener((ActionEvent event) -> {
-			interfaceCadastroProduto();
+			//interfaceCadastroProduto();
+			interfaceCadastroDoProduto.criarInterfaceDoProduto();
 		});
 
 		JMenuItem CadastroPedido = new JMenuItem("Cadastrar Pedido");
@@ -81,16 +87,33 @@ public class InterfaceMenuGeral extends JFrame {
 			interfaceCadastroPedido();
 		});
 
+		JMenuItem CadastroOrdemServico = new JMenuItem("Cadastrar Ordem de serviço");
+
+		CadastroOrdemServico.addActionListener((ActionEvent event) -> {
+			interfaceCadastroOrdemServico();
+		});
+
 		CadastroMenu.add(CadastroCliente);
 		CadastroMenu.add(CadastroFornecedor);
 		CadastroMenu.add(CadastroMatPrima);
 		CadastroMenu.add(CadastroProduto);
 		CadastroMenu.add(CadastroPedido);
+		CadastroMenu.add(CadastroOrdemServico);
 
 		JMenu FabricaMenu = new JMenu("Usuário - Fábrica");
 		JMenuItem SaidaProdutoMi = new JMenuItem("Gerar saída de Produto");
 		JMenuItem ListarAndamentoProducao = new JMenuItem("Listar andamento da produção");
 		JMenuItem ListarInsumosProduto = new JMenuItem("Listar insumos do produto");
+		JMenuItem ProduzirOrdemServico = new JMenuItem("Produzir Ordem de Servico");
+
+		ProduzirOrdemServico.addActionListener((ActionEvent event) -> {
+			interfaceProduzirOrdemServico();
+		});
+
+		ListarInsumosProduto.addActionListener((ActionEvent event) -> {
+			interfaceListarInsumosProduto();
+		});
+
 		JMenuItem ListarPedidos = new JMenuItem("Listar pedidos");
 		JMenuItem CadastrarProdutoNovo = new JMenuItem("Cadastrar produto novo");
 
@@ -99,6 +122,7 @@ public class InterfaceMenuGeral extends JFrame {
 		FabricaMenu.add(ListarInsumosProduto);
 		FabricaMenu.add(ListarPedidos);
 		FabricaMenu.add(CadastrarProdutoNovo);
+		FabricaMenu.add(ProduzirOrdemServico);
 
 		JMenu AlmoxarifadoMenu = new JMenu("Usuário - Almoxarifado");
 		JMenuItem CadastrarEntradaInsumo = new JMenuItem("Cadastrar Entrada de insumos");
@@ -108,11 +132,29 @@ public class InterfaceMenuGeral extends JFrame {
 
 		JMenuItem ListarMaxMinEstoque = new JMenuItem("Listar Máximos/Mínimos do Estoque");
 		JMenuItem ListarQtdProdutosProduzidos = new JMenuItem("Listar quantidade de produtos produzidos");
+
+		ListarQtdProdutosProduzidos.addActionListener((ActionEvent event) -> {
+			JFrame frame = new JFrame();
+			JOptionPane.showMessageDialog(frame, "Leleo");
+		});
+
 		JMenuItem ListarQtdInsumosConsumidos = new JMenuItem("Listar quantidade de insumos consumidos");
+
+		ListarQtdInsumosConsumidos.addActionListener((ActionEvent event) -> {
+			JFrame frame = new JFrame();
+			JOptionPane.showMessageDialog(frame, "Leleo");
+		});
+
 		JMenuItem ListarPedidoCliente = new JMenuItem("Listar pedidos cliente");
 		JMenuItem ListarAndamentoPedido = new JMenuItem("Listar andamento do pedido");
 
 		AdministrativoMenu.add(ListarMaxMinEstoque);
+
+		ListarMaxMinEstoque.addActionListener((ActionEvent event) -> {
+			JFrame frame = new JFrame();
+			JOptionPane.showMessageDialog(frame, "Leleo");
+		});
+
 		AdministrativoMenu.add(ListarQtdProdutosProduzidos);
 		AdministrativoMenu.add(ListarQtdInsumosConsumidos);
 		AdministrativoMenu.add(ListarPedidoCliente);
@@ -138,6 +180,147 @@ public class InterfaceMenuGeral extends JFrame {
 		menubar.add(SairMenu);
 
 		setJMenuBar(menubar);
+	}
+
+	private void interfaceProduzirOrdemServico() {
+
+		JFrame frame = new JFrame("Gestoque - Ordem de serviço");
+		frame.setLocationRelativeTo(null);
+		JPanel panel = new JPanel();
+		JLabel labelId = new JLabel("Codigo da OS");
+		JLabel labelQuantidade = new JLabel("Quantidade");
+		JLabel labelProduto = new JLabel("Produto");
+		JButton botaoConcluir = new JButton("Concluir OS");
+		JButton botaoBuscarItens = new JButton("Buscar itens OS");
+		JButton botaoCancelar = new JButton("Cancelar");
+		JTextField textCodigo = new JTextField();
+		JTextField textQuantidade = new JTextField();
+		JTextField textProduto = new JTextField();
+
+		JList list = new JList(servicoFachada.buscarArrayDeOrdemDeServicoToString());
+		list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		JScrollPane scrollableList = new JScrollPane(list);
+
+		panel.add(scrollableList);
+
+		labelId.setHorizontalAlignment(0);
+		panel.add(labelId);
+		textCodigo.setPreferredSize(new Dimension(100, 20));
+		panel.add(textCodigo);
+
+		labelQuantidade.setHorizontalAlignment(0);
+		panel.add(labelQuantidade);
+		textQuantidade.setPreferredSize(new Dimension(100, 20));
+		panel.add(textQuantidade);
+
+		labelProduto.setHorizontalAlignment(0);
+		panel.add(labelProduto);
+		textProduto.setPreferredSize(new Dimension(100, 20));
+		panel.add(textProduto);
+
+		panel.add(botaoConcluir);
+		frame.setSize(500, 200);
+		frame.getContentPane().add(panel);
+		frame.setVisible(true);
+
+		panel.add(botaoBuscarItens);
+		frame.setSize(500, 200);
+		frame.getContentPane().add(panel);
+		frame.setVisible(true);
+
+		panel.add(botaoCancelar);
+		frame.setSize(500, 200);
+		frame.getContentPane().add(panel);
+		frame.setVisible(true);
+
+		botaoConcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				// salvar no estoque
+			}
+		});
+
+		botaoBuscarItens.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				// colocar produto e quantidade nos JtextField;
+			}
+		});
+
+		botaoBuscarItens.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				// limpar o textfield;
+			}
+		});
+
+	}
+
+	private void interfaceCadastroOrdemServico() {
+
+		JFrame frame = new JFrame("Gestoque - Ordem de serviço");
+		frame.setLocationRelativeTo(null);
+		JPanel panel = new JPanel();
+		JLabel labelQuantidade = new JLabel("Quantidade");
+		final JTextField idOrdemServico = new JTextField();
+		final JTextField quantidadeProduto = new JTextField();
+		JButton botaoCadastrar = new JButton("Cadastrar");
+
+		JList list = new JList(servicoFachada.buscarArrayDeProdutosToString());
+		list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		JScrollPane scrollableList = new JScrollPane(list);
+
+		labelQuantidade.setHorizontalAlignment(0);
+		panel.add(labelQuantidade);
+		quantidadeProduto.setPreferredSize(new Dimension(100, 20));
+		panel.add(quantidadeProduto);
+
+		panel.add(scrollableList);
+		panel.add(botaoCadastrar);
+		frame.setSize(500, 200);
+		frame.getContentPane().add(panel);
+		frame.setVisible(true);
+
+		// panel.add(botaoBuscarProduto);
+		frame.setSize(500, 200);
+		frame.getContentPane().add(panel);
+		frame.setVisible(true);
+
+		botaoCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String[] token = list.getSelectedValue().toString().split("-");
+				servicoFachada.cadastrarOrdemDeServico(idOrdemServico.getText(), token[0].trim(),
+						Integer.parseInt(quantidadeProduto.getText()));
+
+			}
+		});
+
+	}
+
+	private void interfaceListarInsumosProduto() {
+
+		List<AgregadorProdutoMateriaPrima> produtosMateriasPrimas = servicoFachada.buscarListProdutoMateriaPrima();
+
+		StringBuilder mostrarNaTela = new StringBuilder();
+
+		for (AgregadorProdutoMateriaPrima produtoMateriaPrima : produtosMateriasPrimas) {
+
+			mostrarNaTela.append(" \n" + produtoMateriaPrima.produto().getCodigo() + " - "
+					+ produtoMateriaPrima.produto().getNome() + " \n");
+
+			for (MateriaPrima materiaPrima : produtoMateriaPrima.materiasPrimas()) {
+
+				mostrarNaTela.append("    � " + materiaPrima.getNomeMateriaPrima().getNome() + "\n");
+
+			}
+
+		}
+		JFrame frame = new JFrame("Gestoque - Listagem de insumos");
+		JOptionPane.showMessageDialog(frame, mostrarNaTela.toString());
+		// System.out.println(mostrarNaTela.toString());
 	}
 
 	public static void main(String[] args) {
@@ -235,12 +418,12 @@ public class InterfaceMenuGeral extends JFrame {
 		panel.add(QuantidadeDoProduto);
 
 		panel.add(botaoCadastrar);
-		frame.setSize(340, 150);
+		frame.setSize(300, 300);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
 		panel.add(botaoCancelar);
-		frame.setSize(340, 150);
+		frame.setSize(300, 300);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
@@ -265,7 +448,8 @@ public class InterfaceMenuGeral extends JFrame {
 	}
 
 	// criar interface cadastro produto;
-	public static void interfaceCadastroProduto() {
+	/*public static void interfaceCadastroProduto() {
+
 		JFrame frame = new JFrame("Gestoque - Cadastro de Produtos");
 		frame.setLocationRelativeTo(null);
 		JPanel panel = new JPanel();
@@ -275,6 +459,23 @@ public class InterfaceMenuGeral extends JFrame {
 		final JTextField nomeDoProduto = new JTextField();
 		JButton botaoCadastrar = new JButton("Cadastrar");
 		JButton botaoCancelar = new JButton("Cancelar");
+
+		JTextField textParafuso = new JTextField();
+		JTextField textPorca = new JTextField();
+		JTextField textArruela = new JTextField();
+		JTextField textAco = new JTextField();
+		JTextField textAluminio = new JTextField();
+		textParafuso.setPreferredSize(new Dimension(20, 20));
+		textPorca.setPreferredSize(new Dimension(20, 20));
+		textArruela.setPreferredSize(new Dimension(20, 20));
+		textAco.setPreferredSize(new Dimension(20, 20));
+		textAluminio.setPreferredSize(new Dimension(20, 20));
+
+		JCheckBox jcbParafuso = new JCheckBox("Parafuso");
+		JCheckBox jcbPorca = new JCheckBox("Porca");
+		JCheckBox jcbArruela = new JCheckBox("Arruela");
+		JCheckBox jcbAco = new JCheckBox("Chapa de Aço");
+		JCheckBox jcbAluminio = new JCheckBox("Chapa de alumínio");
 
 		labelId.setHorizontalAlignment(0);
 		panel.add(labelId);
@@ -287,23 +488,76 @@ public class InterfaceMenuGeral extends JFrame {
 		panel.add(nomeDoProduto);
 
 		panel.add(botaoCadastrar);
-		frame.setSize(300, 100);
+		frame.setSize(300, 300);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
 
 		panel.add(botaoCancelar);
-		frame.setSize(300, 100);
+		frame.setSize(500, 350);
 		frame.getContentPane().add(panel);
 		frame.setVisible(true);
+		
+		jcbParafuso.setHorizontalAlignment(0);
+		jcbParafuso.setPreferredSize(new Dimension(100, 20));
+		panel.add(jcbParafuso);
+		panel.add(textParafuso);
+
+		jcbPorca.setHorizontalAlignment(0);
+		jcbPorca.setPreferredSize(new Dimension(100, 20));
+		panel.add(jcbPorca);
+		panel.add(textPorca);
+
+		jcbArruela.setHorizontalAlignment(0);
+		jcbArruela.setPreferredSize(new Dimension(100, 20));
+		panel.add(jcbArruela);
+		panel.add(textArruela);
+
+		jcbAco.setHorizontalAlignment(0);
+		jcbAco.setPreferredSize(new Dimension(150, 20));
+		panel.add(jcbAco);
+		panel.add(textAco);
+
+		jcbAluminio.setHorizontalAlignment(0);
+		jcbAluminio.setPreferredSize(new Dimension(200, 20));
+		panel.add(jcbAluminio);
+		panel.add(textAluminio);
 
 		botaoCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Produto produto = servicoFachada.cadastrarProduto(idDoProduto.getText(),nomeDoProduto.getText());
-				
-				System.out.println("Codigo: " + produto.getCodigo());
-				System.out.println("Tipo do produto: "
-						+ produto.getNome());
+
+				List<MateriaPrima> materiasPrimas = new ArrayList<MateriaPrima>();
+
+				if (jcbParafuso.isSelected() == true) {
+					int quantidadeParafuso;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.PAR,
+							quantidadeParafuso = Integer.parseInt(textParafuso.getText())));
+				}
+				if (jcbPorca.isSelected() == true) {
+					int quantidadePorca;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.PRC,
+							quantidadePorca = Integer.parseInt(textPorca.getText())));
+				}
+				if (jcbArruela.isSelected() == true) {
+					int quantidadeArruela;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.ARR,
+							quantidadeArruela = Integer.parseInt(textArruela.getText())));
+				}
+				if (jcbAco.isSelected() == true) {
+					int quantidadeChapaAco;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.CPA,
+							quantidadeChapaAco = Integer.parseInt(textAco.getText())));
+				}
+				if (jcbAluminio.isSelected() == true) {
+					int quantidadeChapaAluminio;
+					materiasPrimas.add(MateriaPrima.nova(NomeMateriaPrima.CAL,
+							quantidadeChapaAluminio = Integer.parseInt(textAluminio.getText())));
+				}
+
+				AgregadorProdutoMateriaPrima agregadorProdutoMateriaPrima = servicoFachada.associarProdutoMateriaPrima(
+						servicoFachada.cadastrarProduto(idDoProduto.getText(), nomeDoProduto.getText()),
+						materiasPrimas);
+
+				JOptionPane.showMessageDialog(frame, agregadorProdutoMateriaPrima.toString());
 			}
 		});
 
@@ -311,9 +565,15 @@ public class InterfaceMenuGeral extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				idDoProduto.setText("");
 				nomeDoProduto.setText("");
+				textParafuso.setText("");
+				textPorca.setText("");
+				textAco.setText("");
+				textAluminio.setText("");
+				textArruela.setText("");
+
 			}
 		});
-	}
+	}*/
 
 	// criar interface materia prima
 	public static void interfaceCadastroMatPrima() {

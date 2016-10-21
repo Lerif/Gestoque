@@ -3,42 +3,34 @@ package Repositorios;
 import java.util.ArrayList;
 import java.util.List;
 
-import Entidades.Produto;
+import Entidades.EstoqueProduto;
 
-public class RepositorioEstoqueProduto implements RepositorioGenerico<Produto>{
+public class RepositorioEstoqueProduto implements RepositorioGenerico<EstoqueProduto> {
 
-	public static ArrayList<Produto> estoqueProduto = new ArrayList<Produto>();
-	
-	public RepositorioEstoqueProduto() {
-		
+	private RepositorioEstoqueProduto() {
+
 	}
 
-	public ArrayList<Produto> select(Produto produto){
-		ArrayList<Produto> retornoSelect = new ArrayList<Produto>();
-		for (Produto produtoList : estoqueProduto){
-			if(estoqueProduto.contains(produto.hashCode())){
-				retornoSelect.add(produtoList);
-			}else{
-				retornoSelect = null;
-			}
-		}
-		return retornoSelect;
+	public static RepositorioEstoqueProduto obterRepositorioEstoqueProduto() {
+		return new RepositorioEstoqueProduto();
 	}
-	public void insert(Produto produto){
-		estoqueProduto.add(produto);
-	}
-//	ArrayList<Produto> delete(){
-//		
-//	}
-//	ArrayList<Produto> update(){
-//		
-//	}
 
-	public List<Produto> findAll() {
-		return estoqueProduto;
+	private static List<EstoqueProduto> estoquesProdutos = new ArrayList<EstoqueProduto>();
+
+	@Override
+	public ArrayList<EstoqueProduto> select(EstoqueProduto t) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-//	RepositorioEstoqueProduto find(RepositorioEstoqueProduto obj){
-//		
-//	}
+
+	@Override
+	public void insert(EstoqueProduto t) {
+		this.estoquesProdutos.add(t);
+	}
+
+	@Override
+	public List<EstoqueProduto> findAll() {
+		return this.estoquesProdutos;
+	}
+
 }

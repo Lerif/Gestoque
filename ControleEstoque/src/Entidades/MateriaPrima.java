@@ -1,35 +1,33 @@
 package Entidades;
 
+import Enumeradores.NomeMateriaPrima;
+
 public class MateriaPrima {
 
-	private String tipo;
-	private int quantidade;
+	private NomeMateriaPrima nomeMateriaPrima;
+	private int quantidadeMateriaPrima;
 
-	private MateriaPrima(String tipo, int quantidade) {
-		this.tipo = tipo;
-		this.quantidade = quantidade;
-
+	private MateriaPrima(NomeMateriaPrima nomeMateriaPrima, int quantidadeMateriaPrima) {
+		this.nomeMateriaPrima = nomeMateriaPrima;
+		this.quantidadeMateriaPrima = quantidadeMateriaPrima;
 	}
 
-	public static MateriaPrima nova(String tipo, int quantidade) {
-		return new MateriaPrima(tipo, quantidade);
+	public static MateriaPrima nova(NomeMateriaPrima nomeMateriaPrima, int quantidadeMateriaPrima) {
+		return new MateriaPrima(nomeMateriaPrima, quantidadeMateriaPrima);
 	}
 
-	public String getTipo() {
-		return tipo;
+	public NomeMateriaPrima getNomeMateriaPrima() {
+		return nomeMateriaPrima;
 	}
+	public int getQuantidadeMateriaPrima(){
+		return quantidadeMateriaPrima;
+	}
+	/*public void setQuantidadeMateriaPrima(int quantidadeMateriaPrima){
+		this.quantidadeMateriaPrima = quantidadeMateriaPrima;
+	}*/
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipo(NomeMateriaPrima nomeMateriaPrima, int quantidade) {
+		this.nomeMateriaPrima = nomeMateriaPrima;
+		this.quantidadeMateriaPrima = quantidade;
 	}
-
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-	
-	
 }

@@ -1,6 +1,7 @@
 package Fabricas;
 
 import Entidades.MateriaPrima;
+import Enumeradores.NomeMateriaPrima;
 
 public class FabricaMateriaPrima extends AbstrataFabrica<FabricaMateriaPrima> {
 
@@ -11,7 +12,7 @@ public class FabricaMateriaPrima extends AbstrataFabrica<FabricaMateriaPrima> {
 		return new FabricaMateriaPrima();
 	}
 
-	public MateriaPrima nova(String tipo, int quantidade) {
-		return MateriaPrima.nova(tipo, quantidade);
+	public MateriaPrima nova(NomeMateriaPrima nomeMateriaPrima,int quantidadeMateriaPrima) {
+		return MateriaPrima.nova(nomeMateriaPrima,quantidadeMateriaPrima);
 	}
 }
