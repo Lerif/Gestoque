@@ -2,6 +2,8 @@ package Servicos;
 
 import java.util.List;
 
+import Agregadores.AgregadorPedidoCliente;
+import Agregadores.AgregadorProdutoMateriaPrima;
 import Entidades.Cliente;
 import Fabricas.FabricaCliente;
 import Repositorios.RepositorioCliente;
@@ -18,8 +20,8 @@ public class ServicoCliente {
 
 	
 
-	public Cliente solicitarCriacaoCliente(String nome, String cnpj){
-		Cliente cliente = FabricaCliente.nova().novo(nome, cnpj);
+	public Cliente solicitarCriacaoCliente(String nome, String cnpj, AgregadorPedidoCliente agregadorPedidoCliente){
+		Cliente cliente = FabricaCliente.nova().novo(nome, cnpj, agregadorPedidoCliente);
 		repositorioCliente.insert(cliente);
 		return cliente;
 	}

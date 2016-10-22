@@ -19,6 +19,15 @@ public class AgregadorProdutoMateriaPrima {
 		return new AgregadorProdutoMateriaPrima(materiaPrima, produto);
 	}
 
+	public Produto produto() {
+		return produto;
+	}
+
+	// TODO trocar este por um GET
+	public List<MateriaPrima> materiasPrimas() {
+		return this.materiaPrima;
+
+	}
 	@Override
 	public String toString() {
 
@@ -34,15 +43,7 @@ public class AgregadorProdutoMateriaPrima {
 		return stringBuilder.toString();
 	}
 
-	public Produto produto() {
-		return produto;
-	}
 
-	// TODO trocar este por um GET
-	public List<MateriaPrima> materiasPrimas() {
-		return this.materiaPrima;
-
-	}
 	
 }
 

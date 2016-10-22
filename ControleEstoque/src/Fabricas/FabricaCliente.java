@@ -1,5 +1,6 @@
 package Fabricas;
 
+import Agregadores.AgregadorPedidoCliente;
 import Entidades.Cliente;
 
 public class FabricaCliente extends AbstrataFabrica<FabricaCliente> {
@@ -12,7 +13,7 @@ public class FabricaCliente extends AbstrataFabrica<FabricaCliente> {
 		return new FabricaCliente();
 	}
 
-	public Cliente novo(String nome, String cnpj) {
-		return Cliente.novo(nome, cnpj);
+	public Cliente novo(String nome, String cnpj, AgregadorPedidoCliente agregadorPedidoCliente) {
+		return Cliente.novo(nome, cnpj, agregadorPedidoCliente);
 	}
 }

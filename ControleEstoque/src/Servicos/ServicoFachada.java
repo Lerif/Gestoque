@@ -2,6 +2,7 @@ package Servicos;
 
 import java.util.List;
 
+import Agregadores.AgregadorPedidoCliente;
 import Agregadores.AgregadorProdutoMateriaPrima;
 import Entidades.Cliente;
 import Entidades.MateriaPrima;
@@ -32,9 +33,9 @@ public class ServicoFachada {
 		return servicoCliente.solicitarCriacaoCliente(nome, cnpj);
 	}*/
 	
-	public Cliente cadastrarCliente(String nome, String cnpj){
+	public Cliente cadastrarCliente(String nome, String cnpj, AgregadorPedidoCliente agregadorPedidoCliente){
 		ServicoCliente cliente = new ServicoCliente();
-		return cliente.solicitarCriacaoCliente(nome, cnpj);
+		return cliente.solicitarCriacaoCliente(nome, cnpj, agregadorPedidoCliente);
 	}
 	
 	public List<Cliente> buscarListaClientes(){

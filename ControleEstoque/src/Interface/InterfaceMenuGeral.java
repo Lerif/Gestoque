@@ -132,6 +132,10 @@ public class InterfaceMenuGeral extends JFrame {
 		JMenu AlmoxarifadoMenu = new JMenu("Usuário - Almoxarifado");
 		JMenuItem CadastrarEntradaInsumo = new JMenuItem("Cadastrar Entrada de insumos");
 		AlmoxarifadoMenu.add(CadastrarEntradaInsumo);
+		
+		CadastrarEntradaInsumo.addActionListener((ActionEvent event) -> {
+			
+		});
 
 		JMenu AdministrativoMenu = new JMenu("Usuário - Administrativo");
 
@@ -151,8 +155,19 @@ public class InterfaceMenuGeral extends JFrame {
 		});
 
 		JMenuItem ListarPedidoCliente = new JMenuItem("Listar pedidos cliente");
+		
+		ListarPedidoCliente.addActionListener((ActionEvent event) -> {
+			JFrame frame = new JFrame();
+			JOptionPane.showMessageDialog(frame, "Os pedidos do cliente sao: ");
+		});
+		
 		JMenuItem ListarAndamentoPedido = new JMenuItem("Listar andamento do pedido");
 
+		ListarAndamentoPedido.addActionListener((ActionEvent event) -> {
+			JFrame frame = new JFrame();
+			JOptionPane.showMessageDialog(frame, "O andamento é: ");
+		});
+		
 		AdministrativoMenu.add(ListarMaxMinEstoque);
 
 		ListarMaxMinEstoque.addActionListener((ActionEvent event) -> {
@@ -370,8 +385,11 @@ public class InterfaceMenuGeral extends JFrame {
 
 		botaoCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				List <Cliente> clientes = new ArrayList<>();
-				clientes.add(Cliente.novo(NomeCliente.getText(), CPFCliente.getText()));
+			/*	
+				Cliente cliente = servicoFachada.cadastrarCliente(NomeCliente.getText(), CPFCliente.getText(), pedido);
+				JOptionPane.showMessageDialog(frame,"O cliente: " + cliente.getNome() + " foi cadastrado com sucesso !");
+				
+				*/
 				
 				
 			}

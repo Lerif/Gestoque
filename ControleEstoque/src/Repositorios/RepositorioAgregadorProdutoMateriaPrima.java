@@ -8,10 +8,10 @@ import Entidades.Produto;
 
 public class RepositorioAgregadorProdutoMateriaPrima {
 
-	List<Produto> listaDeProdutos = new ArrayList();
+	List<Produto> listaDeProdutos = new ArrayList<>();
 	List<List<MateriaPrima>> listasDeMateriasPrimas;
 	
-	public void inserir(Produto produto, List listaMateriaPrima){
+	public void inserir(Produto produto, List<MateriaPrima> listaMateriaPrima){
 		this.listaDeProdutos.add(produto);
 		this.listasDeMateriasPrimas.add(listaMateriaPrima);
 	}
@@ -23,7 +23,7 @@ public class RepositorioAgregadorProdutoMateriaPrima {
 	 * retorno: Lista de materias prima do produto, caso
 	 * o produto nao seja encontrado retorna null.
 	 * */
-	public List pegarListaDeInsumosDoProduto(String nome){
+	public List<MateriaPrima> pegarListaDeInsumosDoProduto(String nome){
 		
 		int index = 0;
 		
@@ -48,7 +48,7 @@ public class RepositorioAgregadorProdutoMateriaPrima {
 		return null;
 	}
 	
-	public List pegarTodosProdutos(){
+	public List<Produto> pegarTodosProdutos(){
 		return listaDeProdutos;
 	}
 	

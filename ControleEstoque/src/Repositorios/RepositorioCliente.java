@@ -28,7 +28,6 @@ public class RepositorioCliente implements RepositorioGenerico<Cliente> {
 		return null;
 	}
 	public ArrayList<Cliente> select(Cliente t) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
